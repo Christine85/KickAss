@@ -17,6 +17,7 @@ namespace KickAss2
         {
             //hej monika och hej på oss Kick Ass gruppen! vi ska sparka på rumpor nu!
 			//Ja det ska vi!
+            //Funkar??
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
