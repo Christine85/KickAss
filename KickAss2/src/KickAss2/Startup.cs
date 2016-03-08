@@ -29,7 +29,7 @@ namespace KickAss2
             });
         }
 
-        // Entry point for the application.
+        // Entry point for the application. asgdhagsda
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
