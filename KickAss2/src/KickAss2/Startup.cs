@@ -15,7 +15,7 @@ namespace KickAss2
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //hej, RÖV
+            //hej monika
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,7 +29,7 @@ namespace KickAss2
             });
         }
 
-        // Entry point for the application.
+        // Entry point for the application. asgdhagsda
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
