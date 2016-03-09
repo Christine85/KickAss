@@ -1,5 +1,80 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using KickAss2.ViewModels
+@model CreateProductVM
+
 @{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Lägg till en produkt";
 }
+
+<body>
+    <h1 style="text-align: center">Lägg till en produkt</h1>
+    <div asp-validation-summary="ValidationSummary.All"></div>
+    <form asp-controller="Home" asp-action="Create">
+        <table style="margin-left: 200px">
+            <tr>
+                <td>
+                    <label asp-for="Name"></label>
+                </td>
+                <td>
+                    <input asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="Stock"></label>
+                </td>
+                <td>
+                    <input asp-for="Stock">
+                    <span asp-validation-for="Stock"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="Description"></label>
+                </td>
+                <td>
+                    <input asp-for="Description">
+                    <span asp-validation-for="Description"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="Price"></label>
+                </td>
+                <td>
+                    <input asp-for="Price">
+                    <span asp-validation-for="Price"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="CategoryId"></label>
+                </td>
+                <td>
+                    <input asp-for="CategoryId">
+                    <span asp-validation-for="CategoryId"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Lägg till" />
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <environment names="Development">
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Production">
+        <script src="~/Scripts/jquery.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    </environment>
+
+</body>
+
+

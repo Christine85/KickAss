@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -26,3 +27,4 @@ namespace KickAss2.Models
         //public Image ProductImage { get; set; }
     }
 }
+
