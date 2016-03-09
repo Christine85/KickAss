@@ -1,12 +1,22 @@
-﻿{
+{
   "version": "1.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
   },
 
   "dependencies": {
+    "bootstrap": "3.3.6",
+    "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
+    "jQuery": "2.2.1",
+    "jQuery.Validation": "1.14.0",
+    "jQuery.Validation.Unobtrusive": "2.0.20710",
+    "Microsoft.AspNet.Diagnostics": "1.0.0-rc1-final",
     "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
-    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final"
+    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
+    "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final"
   },
 
   "commands": {
@@ -14,8 +24,7 @@
   },
 
   "frameworks": {
-    "dnx451": { },
-    "dnxcore50": { }
+    "dnx451": { }
   },
 
   "exclude": [
