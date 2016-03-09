@@ -5,6 +5,7 @@
   },
 
   "dependencies": {
+    "bootstrap": "3.3.6",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
     "jQuery": "2.2.1",
     "jQuery.Validation": "1.14.0",

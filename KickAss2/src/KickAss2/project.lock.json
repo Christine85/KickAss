@@ -3,6 +3,12 @@
   "version": 2,
   "targets": {
     "DNX,Version=v4.5.1": {
+      "bootstrap/3.3.6": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "[1.9.1, 3.0.0)"
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -1708,6 +1714,12 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x86": {
+      "bootstrap/3.3.6": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "[1.9.1, 3.0.0)"
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -3416,6 +3428,12 @@
       }
     },
     "DNX,Version=v4.5.1/win7-x64": {
+      "bootstrap/3.3.6": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "[1.9.1, 3.0.0)"
+        }
+      },
       "EntityFramework.Core/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -5125,6 +5143,30 @@
     }
   },
   "libraries": {
+    "bootstrap/3.3.6": {
+      "type": "package",
+      "sha512": "B6avgcsN2KYxjpqO6jdN+hpPjjeQe5Rb5t/oTA6b4tWXdx80U/aKG6Up0bm+JsPTVsP9/VXc8qfVBicxiaEbAA==",
+      "files": [
+        "bootstrap.3.3.6.nupkg",
+        "bootstrap.3.3.6.nupkg.sha512",
+        "bootstrap.nuspec",
+        "content/Content/bootstrap.css",
+        "content/Content/bootstrap.css.map",
+        "content/Content/bootstrap.min.css",
+        "content/Content/bootstrap.min.css.map",
+        "content/Content/bootstrap-theme.css",
+        "content/Content/bootstrap-theme.css.map",
+        "content/Content/bootstrap-theme.min.css",
+        "content/Content/bootstrap-theme.min.css.map",
+        "content/fonts/glyphicons-halflings-regular.eot",
+        "content/fonts/glyphicons-halflings-regular.svg",
+        "content/fonts/glyphicons-halflings-regular.ttf",
+        "content/fonts/glyphicons-halflings-regular.woff",
+        "content/fonts/glyphicons-halflings-regular.woff2",
+        "content/Scripts/bootstrap.js",
+        "content/Scripts/bootstrap.min.js"
+      ]
+    },
     "EntityFramework.Core/7.0.0-rc1-final": {
       "type": "package",
       "serviceable": true,
@@ -7112,6 +7154,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
+      "bootstrap >= 3.3.6",
       "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
       "jQuery >= 2.2.1",
       "jQuery.Validation >= 1.14.0",
