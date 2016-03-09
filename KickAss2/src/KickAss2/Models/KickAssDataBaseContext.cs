@@ -8,25 +8,17 @@ namespace KickAss2.Models
 {
     public class KickAssDataBaseContext : DbContext
     {
-        public DbSet<> { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<>().ToTable("");
-    }
-}
-}
-
-/*
-
-    {
-        public DbSet<Car> Cars { get; set; }
+        //DB
+        public DbSet<User> Users { get; set; }
+        public DbSet <Address> Addresses { get; set; }
+        public DbSet<Security> Securitys { get; set; }
+        public int MyProperty { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Car>().ToTable("Cars");
+            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Address>().ToTable("Addresses");
+            modelBuilder.Entity<Security>().ToTable("Securitys");
         }
     }
 }
-
-    */
