@@ -18,8 +18,8 @@ namespace KickAss2.ViewModels
         [EmailAddress(ErrorMessage ="Wrong Format")]
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public List<Address> Addresses { get; set; }
-        public List<Order> OrderHistory { get; set; }
+        public string Password { get; set; }
+        
 
     }
 }
