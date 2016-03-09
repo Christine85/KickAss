@@ -14,27 +14,40 @@ namespace KickAss2.Models
             this.context = context;
         }
 
-        public void CreateUser(CreateUserVM viewModel)
+        public bool CreateUser(CreateUserVM viewModel)
         {
             var user = new User();
-            
-            user.UserId = 1;
-            user.FirstName = viewModel.FirstName;
-            user.LastName = viewModel.LastName;
-            user.Email = viewModel.Email;
-            user.PhoneNumber = viewModel.PhoneNumber;
 
-            context.Users.Add(user);
-            context.SaveChanges();
+            var result = context.Users.Count(o => o.Email.Equals(viewModel.Email));
 
-            var security = new Security();
+            if (result == 0)
+            {
+                user.UserId = 1;
+                user.FirstName = viewModel.FirstName;
+                user.LastName = viewModel.LastName;
+                user.Email = viewModel.Email;
+                user.PhoneNumber = viewModel.PhoneNumber;
 
-            security.Email = viewModel.Email;
-            security.Password = viewModel.Password;
+                context.Users.Add(user);
+                context.SaveChanges();
 
-            context.Securitys.Add(security);
-            context.SaveChanges();
+                var security = new Security();
 
+                security.Email = viewModel.Email;
+                security.Password = viewModel.Password;
+
+                context.Securitys.Add(security);
+                context.SaveChanges();
+
+                //true om kund lagts till i DB
+                return true;
+            }
+
+            else
+            {
+                //false om email redan fanns i DB
+                return false;
+            }                        
         }
     }
 }
