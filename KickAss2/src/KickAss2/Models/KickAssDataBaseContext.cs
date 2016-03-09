@@ -12,8 +12,7 @@ namespace KickAss2.Models
         public DbSet<User> Users { get; set; }
         public DbSet <Address> Addresses { get; set; }
         public DbSet<Security> Securitys { get; set; }
-        public int MyProperty { get; set; }
-
+                
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("Users");
