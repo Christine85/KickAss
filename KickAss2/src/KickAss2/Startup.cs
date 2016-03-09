@@ -6,6 +6,8 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.Entity;
+using KickAss2.Models;
 
 namespace KickAss2
 {
@@ -15,11 +17,11 @@ namespace KickAss2
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connString = @"Data Source = (localdb)\mssqllocaldb; Initial Catalog = Northwind; Integrated Security = True; Pooling = False";
-            //services.AddEntityFramework()
-            //            .AddSqlServer()
-            //.AddDbContext<NorthwindContext>(o =>
-            //    o.UseSqlServer(connString));
+            var connString = @"Data Source=kickass.database.windows.net;Initial Catalog=KickAssDataBase;Integrated Security=False;User ID=kickass;Password=********;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            services.AddEntityFramework()
+            .AddSqlServer()
+            .AddDbContext<KickAssDataBaseContext>(o =>
+                o.UseSqlServer(connString));
             services.AddMvc();
         }
 
