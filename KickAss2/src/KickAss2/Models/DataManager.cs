@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KickAss2.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace KickAss2.Models
         {
             var user = new User();
 
+            //kolla hur månag som finns med samma email
             var result = context.Users.Count(o => o.Email.Equals(viewModel.Email));
 
             if (result == 0)
@@ -29,8 +31,7 @@ namespace KickAss2.Models
                 user.PhoneNumber = viewModel.PhoneNumber;
 
                 context.Users.Add(user);
-                context.SaveChanges();
-
+               
                 var security = new Security();
 
                 security.Email = viewModel.Email;
