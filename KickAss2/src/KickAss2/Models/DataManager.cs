@@ -9,6 +9,7 @@ namespace KickAss2.Models
     public class DataManager
     {
         KickAssDataBaseContext context;
+        static int UserID;
 
         public DataManager(KickAssDataBaseContext context)
         {
@@ -31,7 +32,7 @@ namespace KickAss2.Models
                 user.PhoneNumber = viewModel.PhoneNumber;
 
                 context.Users.Add(user);
-               
+
                 var security = new Security();
 
                 security.Email = viewModel.Email;
@@ -39,6 +40,12 @@ namespace KickAss2.Models
 
                 context.Securitys.Add(security);
                 context.SaveChanges();
+
+                //spara ID för den nya användaren
+                UserID = Convert.ToInt32(context.Users
+                    .Where(o => o.Email == viewModel.Email)
+                    .Select(o => o.UserId)
+                    .ToString());
 
                 //true om kund lagts till i DB
                 return true;
@@ -48,7 +55,46 @@ namespace KickAss2.Models
             {
                 //false om email redan fanns i DB
                 return false;
-            }                        
+            }
+        }
+
+        public List<OrderHistoryVM> OrderHistory(OrderHistoryVM viewModel)
+        {
+           return context.Orders
+                .Where(o => o.CustomerId == UserID)
+                .Select(o => new OrderHistoryVM
+                {
+                    OrderDate = o.OrderDate,
+                    OrderId = o.OrderId,
+                    TotalPrice = o.TotalPrice
+                })
+                .ToList();
+        }
+        public List<ProductInOrderVM> OrderDetails(int orderID)
+        {
+            return context.ProductsInOrder
+                .Where(o => o.OrderId == orderID)
+                .Select(o => new OrderDetails
+                {
+                    ProductId = o.ProductId,
+                    Name = o.Name,
+                    Quantity = o.Quantity,
+                    Price = o.Price
+                })
+                .ToList();
+        }
+
+        public List<ListProductVM> ListProducts()
+        {
+            return context.Products
+                .OrderBy(c => c.CategoryID)
+                .Select(c => new ListProductVM
+                {
+                    Name = c.Name,
+                    Description = c.Description,
+                    Price = c.Price
+                })
+                .ToList();
         }
     }
 }
