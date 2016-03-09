@@ -10,10 +10,6 @@ namespace KickAss2.ViewModels
 {
     public class CreateProductVM
     {
-        [Display(Name = "Produkt ID")]
-        [Required(ErrorMessage = "Du måste ange produkt ID.")]
-        public int ProductId { get; set; }
-
         [Display(Name = "Produktnamn")]
         [Required(ErrorMessage = "Du måste ange namn för produkten.")]
         public string Name { get; set; }
