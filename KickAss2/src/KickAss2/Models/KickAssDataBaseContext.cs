@@ -10,10 +10,11 @@ namespace KickAss2.Models
     {
         //DB
         public DbSet<User> Users { get; set; }
-        public DbSet <Address> Addresses { get; set; }
+        public DbSet<Address> Addresses { get; set; }
         public DbSet<Security> Securitys { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<ProductInOrder> ProductsInOrder { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace KickAss2.Models
             modelBuilder.Entity<Security>().ToTable("Securitys");
             modelBuilder.Entity<Order>().ToTable("Orders");
             modelBuilder.Entity<ProductInOrder>().ToTable("ProductsInOrder");
+            modelBuilder.Entity<Product>().ToTable("Products");
         }
     }
 }
