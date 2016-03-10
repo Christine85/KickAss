@@ -11,7 +11,7 @@ namespace KickAss2.Models
         public int Quantity { get; set; }
         public int OrderID { get; set; }
         public float Price { get; set; }
-        public int ProductID { get; set; }
+        public int ProductId { get; set; }
 
     }
 }
