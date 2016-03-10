@@ -8,67 +8,79 @@
     <h1 style="text-align: center">Fyll i dina uppgifter</h1>
     <div asp-validation-summary="ValidationSummary.All"></div>
     <form asp-controller="Users" asp-action="Create">
-        <table>
-            <tr>
-                <td>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
                     <label asp-for="FirstName"></label>
-                </td>
-                <td>
-                    <input asp-for="FirstName">
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="FirstName" placeholder="Förnamn">
                     <span asp-validation-for="FirstName"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
                     <label asp-for="LastName"></label>
-                </td>
-                <td>
-                    <input asp-for="LastName">
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="LastName" placeholder="Efternamn">
                     <span asp-validation-for="LastName"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
                     <label asp-for="Email"></label>
-                </td>
-                <td>
-                    <input asp-for="Email">
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Email" placeholder="Ex. kalle@gmail.com">
                     <span asp-validation-for="Email"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
                     <label asp-for="PhoneNumber"></label>
-                </td>
-                <td>
-                    <input asp-for="PhoneNumber">
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="PhoneNumber" placeholder="Ex. 0708460256">
                     <span asp-validation-for="PhoneNumber"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
                     <label asp-for="Password"></label>
-                </td>
-                <td>
-                    <input asp-for="Password">
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Password" placeholder="Lösenord">
                     <span asp-validation-for="Password"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label asp-for="Password"></label>
-                </td>
-                <td>
-                    <input asp-for="Password">
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label>Upprepa</label> <label asp-for="Password"></label><label>et </label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Password" placeholder="Lösenord">
                     <span asp-validation-for="Password"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
                     <input type="submit" value="Registrera" />
-                </td>
-            </tr>
-        </table>
+                </div>
+                <div class="col-sm-4">
+                </div>
+                <div class="row" style="color:transparent"> .</div>
+                <div class="row" style="color:transparent"> .</div>
+            </div>
+        </div>
+
     </form>
     <environment names="Development">
         <script src="~/Scripts/jquery.js"></script>
