@@ -22,7 +22,7 @@ namespace KickAss2.Models
 
             //kolla hur många som finns med samma email
             var result = context.Users.Count(o => o.Email.Equals(viewModel.Email));
-
+            
             if (result == 0)
             {
                 user.UserId = 1;
