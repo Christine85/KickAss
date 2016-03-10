@@ -1,68 +1,86 @@
-﻿@model CreateProductVM
+﻿
+@model CreateProductVM
 
 @{
-    
+
     ViewBag.Title = "Lägg till en produkt";
 }
 
-<body>
-    <h1 style="text-align: center">Lägg till en produkt</h1>
-    <div asp-validation-summary="ValidationSummary.All"></div>
-    <form asp-controller="Home" asp-action="Create">
-        <table style="margin-left: 200px">
-            <tr>
-                <td>
-                    <label asp-for="Name"></label>
-                </td>
-                <td>
-                    <input asp-for="Name">
-                    <span asp-validation-for="Name"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label asp-for="Stock"></label>
-                </td>
-                <td>
-                    <input asp-for="Stock">
-                    <span asp-validation-for="Stock"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label asp-for="Description"></label>
-                </td>
-                <td>
-                    <input asp-for="Description">
-                    <span asp-validation-for="Description"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label asp-for="Price"></label>
-                </td>
-                <td>
-                    <input asp-for="Price">
-                    <span asp-validation-for="Price"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <label asp-for="CategoryId"></label>
-                </td>
-                <td>
-                    <input asp-for="CategoryId">
-                    <span asp-validation-for="CategoryId"></span>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="submit" value="Lägg till" />
-                </td>
-            </tr>
-        </table>
-    </form>
 
+
+
+
+<body>
+    <h2 style="text-align: left">Fyll i uppgifter för att lägga till en produkt</h2>
+    <div asp-validation-summary="ValidationSummary.All"></div>
+    <form asp-controller="Products" asp-action="CreateProduct">
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Name" placeholder="Produktnamn">
+                    <span asp-validation-for="Name"></span>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="Stock"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Stock" placeholder="Antal">
+                    @*Hur göra för att få placeholder att fungera? 0 förinställt som värde nu då det är en int......*@
+                    <span asp-validation-for="Stock"></span>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="Description"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Description" placeholder="Beskrivning">
+                    <span asp-validation-for="Description"></span>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="Price"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Price" placeholder="Pris">
+                    @*Hur göra för att få placeholder att fungera? 0 förinställt som värde nu då det är en int......*@
+                    <span asp-validation-for="Price"></span>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="SelectedCategoryId"></label>
+                </div>
+                <div class="col-sm-4">
+                    <select asp-for="SelectedCategoryId" placeholder="Välj kategori"
+                            asp-items="Model.CategoryIdList"></select>
+                    <span asp-validation-for="SelectedCategoryId"></span>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <input type="submit" value="Lägg till" />
+                </div>
+                <div class="col-sm-4">
+                </div>
+                <div class="row" style="color:transparent"> .</div>
+                <div class="row" style="color:transparent"> .</div>
+            </div>
+        </div>
+
+    </form>
     <environment names="Development">
         <script src="~/Scripts/jquery.js"></script>
         <script src="~/Scripts/jquery.validate.js"></script>
@@ -73,7 +91,4 @@
         <script src="~/Scripts/jquery.validate.min.js"></script>
         <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     </environment>
-
 </body>
-
-

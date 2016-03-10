@@ -6,7 +6,6 @@ using Microsoft.AspNet.Mvc;
 using KickAss2.ViewModels;
 using Microsoft.AspNet.Mvc.Rendering;
 using KickAss2.Models;
-using Microsoft.AspNet.Mvc.ModelBinding;
 
 namespace KickAss2.Controlllers
 {
@@ -46,7 +45,7 @@ namespace KickAss2.Controlllers
             }
             catch (Exception e)
             {
-                ModelState.AddModelError(string.Empty, e.InnerException.Message);
+                ModelState.AddModelError(string.Empty, e.Message);
                 return View(viewModel);
             }
         }
