@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -9,8 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace KickAss2.Models
 {
     public class Product
-    {
-        [Key]
+    {       
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Stock { get; set; }

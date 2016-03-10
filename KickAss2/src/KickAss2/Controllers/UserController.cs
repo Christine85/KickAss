@@ -6,7 +6,6 @@ using Microsoft.AspNet.Mvc;
 using KickAss2.ViewModels;
 using Microsoft.AspNet.Mvc.Rendering;
 using KickAss2.Models;
-using Microsoft.AspNet.Mvc.ModelBinding;
 
 namespace KickAss2.Controlllers
 {
@@ -46,9 +45,36 @@ namespace KickAss2.Controlllers
             }
             catch (Exception e)
             {
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(viewModel);
+            }
+        }
+       
+        public IActionResult LogIn(LogInUserVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+
+            try
+            {
+                var dataManager = new DataManager(context);
+                bool check = dataManager.CreateUser(viewModel);
+
+                if (check == true)
+                {
+                    return RedirectToAction("Home/Index");
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Mailadressen finns redan registrerad som kund");
+                    return View(viewModel);
+                }
+            }
+            catch (Exception e)
+            {
                 ModelState.AddModelError(string.Empty, e.InnerException.Message);
                 return View(viewModel);
-            }            
+            }
         }
     }
 }

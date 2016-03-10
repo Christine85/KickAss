@@ -102,10 +102,22 @@ namespace KickAss2.Models
             product.Description = viewModel.Description;
             product.Price = viewModel.Price;
             product.Stock = viewModel.Stock;
-            product.CategoryId = viewModel.CategoryId;
-           
+            product.CategoryId = viewModel.SelectedCategoryId;
+
             context.Products.Add(product);
             context.SaveChanges();
+        }
+
+        public bool LogIn(LogInUserVM viewModel)
+        {
+            if (context.Securitys.Any(o => o.Email.Equals(viewModel.Email) && o.Password.Equals(viewModel.Password)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
