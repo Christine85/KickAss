@@ -25,7 +25,7 @@ namespace KickAss2.Models
 
             if (result == 0)
             {
-                user.UserID = 1;
+                user.UserId = 1;
                 user.FirstName = viewModel.FirstName;
                 user.LastName = viewModel.LastName;
                 user.Email = viewModel.Email;
@@ -44,7 +44,7 @@ namespace KickAss2.Models
                 //spara ID för den nya användaren
                 UserID = Convert.ToInt32(context.Users
                     .Where(o => o.Email == viewModel.Email)
-                    .Select(o => o.UserID)
+                    .Select(o => o.UserId)
                     .ToString());
 
                 //true om kund lagts till i DB
@@ -61,7 +61,7 @@ namespace KickAss2.Models
         public List<OrderHistoryVM> OrderHistory(OrderHistoryVM viewModel)
         {
             return context.Orders
-                 .Where(o => o.UserID == UserID)
+                 .Where(o => o.UserId == UserID)
                  .Select(o => new OrderHistoryVM
                  {
                      OrderDate = o.OrderDate,
@@ -76,7 +76,7 @@ namespace KickAss2.Models
                 .Where(o => o.OrderID == orderID)
                 .Select(o => new ProductInOrderVM
                 {
-                    ProductID = o.ProductID,
+                    ProductID = o.ProductId,
                     ProductName = o.ProductName,
                     Quantity = o.Quantity,
                     Price = o.Price
