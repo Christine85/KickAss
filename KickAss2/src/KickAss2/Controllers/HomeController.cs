@@ -8,7 +8,7 @@ using Microsoft.AspNet.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace KickAss2.Controlllers
+namespace KickAss2.Controllers
 {
     public class HomeController : Controller
     {
@@ -18,17 +18,7 @@ namespace KickAss2.Controlllers
             return View();
         }
 
-        public IActionResult Create()
-        {
-            var model = new CreateProductVM();
-            model.CategoryIdList = new SelectListItem[]
-                {
-                    new SelectListItem { Text = "Pennor", Value = "1"},
-                    new SelectListItem { Text = "Papper", Value = "2"},
-                    new SelectListItem { Text = "Förvaring", Value = "3"}
-                };
-            return View(model);
-        }
+       
 
     }
 }

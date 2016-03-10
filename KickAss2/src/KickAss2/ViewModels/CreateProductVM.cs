@@ -29,6 +29,6 @@ namespace KickAss2.ViewModels
         public SelectListItem[] CategoryIdList { get; set; }
         [Display(Name = "Kategori ID")]
         [Required(ErrorMessage = "Du måste ange vilken kategori produkten tillhör.")]
-        public int CategoryId { get; set; }
+        public int SelectedCategoryId { get; set; }
     }
 }

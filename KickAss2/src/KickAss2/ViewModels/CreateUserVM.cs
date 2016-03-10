@@ -30,6 +30,7 @@ namespace KickAss2.ViewModels
         [Display(Name = "Lösenord")]
         public string Password { get; set; }
         
+        [Display(Name = "Upprepa lösenordet")]
         [CompareAttribute("Password", ErrorMessage = "Lösenorden stämmer inte överens!")]
         public string VerifiedPassword { get; set; }
 
