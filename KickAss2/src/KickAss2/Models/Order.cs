@@ -8,7 +8,7 @@ namespace KickAss2.Models
     public class Order
     {
         public int AddressId { get; set; }
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
         public int OrderId { get; set; }
         public float TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }       
