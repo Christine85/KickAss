@@ -8,14 +8,14 @@ using Microsoft.AspNet.Mvc;
 
 namespace KickAss2.Controlllers
 {
-    
-    public class ProductsController : Controller
-    {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
+    //Kick
+    //public class ProductsController : Controller
+    //{
+    //    // GET: /<controller>/
+    //    public IActionResult Index()
+    //    {
 
-            return View();
-        }
-    }
+    //        return View();
+    //    }
+    //}
 }

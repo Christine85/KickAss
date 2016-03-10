@@ -11,62 +11,59 @@
 </head>
 <body>
 
-<div class="container">
-    <div class="container-fluid">
-        <div id="row1" class="row" style="padding:5px;">
-            <p style="font-family: Hallo Euroboy; color: black; font-size: 60px; text-align: center;"><img src="~/images/kickasskontorsprylarlogo.png" /> KICK ASS KONTORSPRYLAR AB</p>
-        </div>
-        <div id="row2" class="row">
-            <!-- #region Navbar -->
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-scissors"></span> KickAss Kontorsprylar AB</a>
+    <div class="container">
+        <div class="container-fluid">
+            <div id="row1" class="row" style="padding: 5px">
+                <p id="1345" style="font-family: Hallo Euroboy; color: black; font-size: 60px; text-align: center;"><img src="~/images/kickasskontorsprylarlogo.png" /> KICK ASS KONTORSPRYLAR AB</p>
+            </div>
+            <div id="row2" class="row">
+                <!-- #region Navbar -->
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/home/index">Kick Ass Kontorsprylar AB</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Block</a></li>
+                                        <li><a href="#">Pennor</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Kontakta oss</a></li>
+                                        <li><a href="#">Företagsinformation</a></li>
+                                        <li><a href="#">Vanliga frågor</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-search"></span> Sök</a></li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
+                                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Block</a></li>
-                                    <li><a href="#">Pennor</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">Kontakta oss</a></li>
-                                    <li><a href="#">Företagsinformation</a></li>
-                                    <li><a href="#">Vanliga frågor</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-search"></span> Sök</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- #endregion -->
+                </nav>
+                <!-- #endregion -->
+            </div>
+            <div id="row3" class="row">
+                @RenderBody()
+            </div>
         </div>
     </div>
-</div>
 
-
-
-
-    <div>
-        @RenderBody()
-    </div>
     <script src="~/Script/jquery.min.js"></script>
     @RenderSection("script", false)
 
@@ -76,7 +73,7 @@
                 <h4><span class="glyphicon glyphicon-earphone"></span> Kontakta oss</h4>
                 <p>+46 708 460 256</p>
                 <p>info@kickasskontorsprylar.nu</p>
-                </div>
+            </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-thumbs-up"></span> Följ oss</h4>
                 <p>Twitter</p>
