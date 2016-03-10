@@ -2,7 +2,6 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Bootstrap Case</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -14,7 +13,14 @@
     <div class="container">
         <div class="container-fluid">
             <div id="row1" class="row" style="padding: 5px">
-                <p id="1345" style="font-family: Hallo Euroboy; color: black; font-size: 60px; text-align: center;"><img src="~/images/kickasskontorsprylarlogo.png" /> KICK ASS KONTORSPRYLAR AB</p>
+                <div class="col-sm-3">
+                    <img class="hidden-xs" src="~/images/kickasskontorsprylarlogo.png" />
+                </div>
+                <div class="col-sm-9" style="text-align: center;">
+                    <p class="hidden-xs" style="color: transparent;">.</p>
+                    <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                    <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                </div>
             </div>
             <div id="row2" class="row">
                 <!-- #region Navbar -->
@@ -96,7 +102,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <!-- #region Fotter -->
+            <!-- #region All Rights Reserved -->
             <div class="col-sm-12" style="background-color:forestgreen; color:white; padding:5px; text-align: center">
                 © 2016 - All Rights Reserved - Kick Ass Kontorsprylar AB
             </div>
