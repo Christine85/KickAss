@@ -9,16 +9,23 @@ namespace KickAss2.ViewModels
 {
     public class CreateUserVM
     {
-        [Required(ErrorMessage ="Please enter a first name")]
-        
+        [Display(Name = "Förnamn")]
+        [Required(ErrorMessage = "Ange förnamn")]
         public string FirstName { get; set; }
-        [Required(ErrorMessage = "Please enter a last name")]
+
+        [Display(Name = "Efternamn")]
+        [Required(ErrorMessage = "Ange efternamn")]
         public string LastName { get; set; }
-        [Required]
-        [EmailAddress(ErrorMessage ="Wrong Format")]
+
+        [Display(Name = "E-mail")]
+        [Required(ErrorMessage = "Du måste ange en e-mail")]
+        [EmailAddress(ErrorMessage = "Felaktigt format")]
         public string Email { get; set; }
+
+        [Display(Name = "Telefonnummer")]
         public string PhoneNumber { get; set; }
+
+        [Display(Name = "Lösenord")]
         public string Password { get; set; }
-       
     }
 }
