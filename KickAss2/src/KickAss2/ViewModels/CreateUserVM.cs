@@ -21,6 +21,7 @@ namespace KickAss2.ViewModels
         [Required(ErrorMessage = "Du måste ange en e-mail")]
         [EmailAddress(ErrorMessage = "Felaktigt format")]
         public string Email { get; set; }
+        [Required(ErrorMessage ="Bekräfta lösenord")]
         [CompareAttribute("Email",ErrorMessage ="mailadresses matchar inte!")]
         public string VerifiedEmail { get; set; }
 
@@ -28,9 +29,11 @@ namespace KickAss2.ViewModels
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Lösenord")]
+        [Required(ErrorMessage ="Ange ett lösenord")]
         public string Password { get; set; }
         
-        [Display(Name = "Upprepa lösenordet")]
+        [Display(Name ="Bekräfta lösenord")]
+        [Required(ErrorMessage = "Bekräfta lösenord")]
         [CompareAttribute("Password", ErrorMessage = "Lösenorden stämmer inte överens!")]
         public string VerifiedPassword { get; set; }
 
