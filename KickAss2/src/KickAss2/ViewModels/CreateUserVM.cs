@@ -21,11 +21,17 @@ namespace KickAss2.ViewModels
         [Required(ErrorMessage = "Du måste ange en e-mail")]
         [EmailAddress(ErrorMessage = "Felaktigt format")]
         public string Email { get; set; }
+        [CompareAttribute("Email",ErrorMessage ="mailadresses matchar inte!")]
+        public string VerifiedEmail { get; set; }
 
         [Display(Name = "Telefonnummer")]
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Lösenord")]
         public string Password { get; set; }
+        
+        [CompareAttribute("Password", ErrorMessage = "Lösenorden stämmer inte överens!")]
+        public string VerifiedPassword { get; set; }
+
     }
 }
