@@ -108,16 +108,16 @@ namespace KickAss2.Models
             context.SaveChanges();
         }
 
-        public bool LogIn(LogInUserVM viewModel)
-        {
-            if (context.Securitys.Any(o => o.Email.Equals(viewModel.Email) && o.Password.Equals(viewModel.Password)))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+        //public bool LogIn(LogInUserVM viewModel)
+        //{
+        //    if (context.Securitys.Any(o => o.Email.Equals(viewModel.Email) && o.Password.Equals(viewModel.Password)))
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        return false;
+        //    }
+        //}
     }
 }

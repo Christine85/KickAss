@@ -24,50 +24,56 @@
             </div>
             <div id="row2" class="row">
                 <!-- #region Navbar -->
-                <nav class="navbar navbar-inverse">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                            <a class="navbar-brand" href="/home/index">Kick Ass Kontorsprylar AB</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="myNavbar">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Block</a></li>
-                                        <li><a href="#">Pennor</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="/KickAssInformation/ContactUs">Kontakta oss</a></li>
-                                        <li><a href="#">Företagsinformation</a></li>
-                                        <li><a href="#">Vanliga frågor</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
-                                <li><a href="#"><input type="text" name="FirstName" placeholder="Ange sökordet"> <span class="glyphicon glyphicon-search"></span> Sök</a></li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
-                                <li><a href="/Home/LogIn"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
-                            </ul>
-                        </div>
+                <div class="container-fluid">
+                    @*<div class="col-sm-2">
+                        <img class="hidden-xs" src="~/images/kickasskontorsprylarlogo.png" />
+                    </div>*@
+                    <div class="col-sm-12">
+                        <nav class="navbar navbar-inverse">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/home/index">Kick Ass Kontorsprylar AB</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Block</a></li>
+                                            <li><a href="#">Pennor</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/KickAssInformation/ContactUs">Kontakta oss</a></li>
+                                            <li><a href="#">Företagsinformation</a></li>
+                                            <li><a href="#">Vanliga frågor</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
+                                    <li><a href="#"><input type="text" name="FirstName" placeholder="Ange sökordet"> <span class="glyphicon glyphicon-search"></span> Sök</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
+                                    <li><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
+                                </ul>
+                            </div>
+                        </nav>
                     </div>
-                </nav>
-                <!-- #endregion -->
+                </div>
             </div>
-            <div id="row3" class="row">
-                @RenderBody()
-            </div>
+            <!-- #endregion -->
         </div>
+        <div id="row3" class="row">
+            @RenderBody()
+        </div>
+    </div>
     </div>
 
     <script src="~/Script/jquery.min.js"></script>
