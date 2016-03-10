@@ -1,5 +1,19 @@
-﻿<table>
+﻿@model List<ListProductVM>
+
+<table>
     <tr>
-        <th>Brand</th>
+        <th>Produktnam</th>
+        <th>Beskrivning</th>
+        <th>Pris</th>
     </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.Price</td>
+        </tr>
+    }
 </table>
+
+

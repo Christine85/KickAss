@@ -8,16 +8,7 @@ using static System.Net.Mime.MediaTypeNames;
 namespace KickAss2.Models
 {
     public class Product
-    {
-        public Product(int productId, string name, int stock, string description, float price, int categoryId)
-        {
-            ProductId = productId;
-            Name = name;
-            Stock = stock;
-            Description = description;
-            Price = price;
-            CategoryId = categoryId;
-        }
+    {       
         public int ProductId { get; set; }
         public string Name { get; set; }
         public int Stock { get; set; }
