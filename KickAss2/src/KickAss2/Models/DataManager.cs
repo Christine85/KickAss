@@ -25,7 +25,7 @@ namespace KickAss2.Models
 
             if (result == 0)
             {
-                user.UserId = 1;
+                user.UserID = 1;
                 user.FirstName = viewModel.FirstName;
                 user.LastName = viewModel.LastName;
                 user.Email = viewModel.Email;
@@ -44,7 +44,7 @@ namespace KickAss2.Models
                 //spara ID för den nya användaren
                 UserID = Convert.ToInt32(context.Users
                     .Where(o => o.Email == viewModel.Email)
-                    .Select(o => o.UserId)
+                    .Select(o => o.UserID)
                     .ToString());
 
                 //true om kund lagts till i DB
@@ -61,7 +61,7 @@ namespace KickAss2.Models
         public List<OrderHistoryVM> OrderHistory(OrderHistoryVM viewModel)
         {
             return context.Orders
-                 .Where(o => o.CustomerId == UserID)
+                 .Where(o => o.UserID == UserID)
                  .Select(o => new OrderHistoryVM
                  {
                      OrderDate = o.OrderDate,
@@ -73,11 +73,11 @@ namespace KickAss2.Models
         public List<ProductInOrderVM> OrderDetails(int orderID)
         {
             return context.ProductsInOrder
-                .Where(o => o.OrderId == orderID)
-                .Select(o => new OrderDetails
+                .Where(o => o.OrderID == orderID)
+                .Select(o => new ProductInOrderVM
                 {
-                    ProductId = o.ProductId,
-                    Name = o.Name,
+                    ProductID = o.ProductID,
+                    ProductName = o.ProductName,
                     Quantity = o.Quantity,
                     Price = o.Price
                 })
@@ -98,15 +98,17 @@ namespace KickAss2.Models
         }
         public void CreateProduct(CreateProductVM viewModel)
         {
-            var product = new Product();           
+            var product = new Product();
 
+            product.ProductId = 1;
             product.Name = viewModel.Name;
             product.Description = viewModel.Description;
             product.Price = viewModel.Price;
             product.Stock = viewModel.Stock;
             product.CategoryId = viewModel.CategoryId;
            
-            context.Categorys.Add(product);
+            context.Products.Add(product);
+            context.SaveChanges();
         }
     }
 }
