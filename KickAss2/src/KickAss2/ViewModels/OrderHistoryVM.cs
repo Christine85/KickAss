@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace KickAss2.ViewModels
 {
+
+    // bara för uppdateringen, ta bort!
+
     public class OrderHistoryVM
     {
         [Display(Name = "Order ID")]
