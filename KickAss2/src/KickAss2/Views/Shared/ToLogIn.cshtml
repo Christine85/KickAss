@@ -1,32 +1,40 @@
-﻿<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-            <label>Användarnamn</label>
-        </div>
-        <div class="col-sm-3">
-            <input type="email" class="form-control" placeholder="E-post">
-        </div>
-    </div>
-    <div class="row" style="color:transparent"> .</div>
-    <div class="row">
-        <div class="col-sm-2">
-            <label>Lösenord</label>
-        </div>
-        <div class="col-sm-3">
-            <input type="password" class="form-control" placeholder="Lösenord">
-        </div>
-    </div>
-</div>
-<div class="row"><p style="color: transparent">.</p></div>
-<div class="row">
-    <div class="col-sm-2">
-        <input type="submit" value="Logga in" class="btn btn-success" style="background-color: forestgreen" />  
-        </div>
-    <div class="col-sm-3">
-        <label><input type="checkbox"> Kom ihåg mig</label>
-    </div>
-</div>
+﻿@model LogInUserVM
+<div asp-validation-summary="ValidationSummary.All"></div>
+<form asp-controller="Home" asp-action="LogIn">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <label asp-for="Email"></label>
 
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="Email" type="email" class="form-control" placeholder="E-post">
+                <span asp-validation-for="Email"></span>
+            </div>
+        </div>
+        <div class="row" style="color:transparent"> .</div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label asp-for="Password"></label>
+
+            </div>
+            <div class="col-sm-3">
+                <input asp-for="Password" type="password" class="form-control" placeholder="Lösenord">
+                <span asp-validation-for="Password"></span>
+
+            </div>
+        </div>
+    </div>
+    <div class="row"><p style="color: transparent">.</p></div>
+    <div class="row">
+        <div class="col-sm-2">
+            <input type="submit" value="Logga in" class="btn btn-success" style="background-color: forestgreen" />
+        </div>
+        <div class="col-sm-3">
+            <label><input type="checkbox"> Kom ihåg mig</label>
+        </div>
+    </div>
+</form>
 
 
 
