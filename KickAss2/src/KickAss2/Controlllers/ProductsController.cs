@@ -8,7 +8,7 @@ using Microsoft.AspNet.Mvc;
 
 namespace KickAss2.Controlllers
 {
-    Kick
+    
     public class ProductsController : Controller
     {
         // GET: /<controller>/
