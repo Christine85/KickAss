@@ -8,7 +8,7 @@
     <h1 style="text-align: center">Fyll i dina uppgifter</h1>
     <div asp-validation-summary="ValidationSummary.All"></div>
     <form asp-controller="Users" asp-action="Create">
-        <table style="margin-left: 200px">
+        <table>
             <tr>
                 <td>
                     <label asp-for="FirstName"></label>
@@ -43,6 +43,15 @@
                 <td>
                     <input asp-for="PhoneNumber">
                     <span asp-validation-for="PhoneNumber"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label asp-for="Password"></label>
+                </td>
+                <td>
+                    <input asp-for="Password">
+                    <span asp-validation-for="Password"></span>
                 </td>
             </tr>
             <tr>
