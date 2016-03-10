@@ -50,7 +50,7 @@ namespace KickAss2.Controlllers
             }
         }
        
-        public IActionResult LogIn(LogInVM viewModel)
+        public IActionResult LogIn(LogInUserVM viewModel)
         {
             if (!ModelState.IsValid)
                 return View(viewModel);
