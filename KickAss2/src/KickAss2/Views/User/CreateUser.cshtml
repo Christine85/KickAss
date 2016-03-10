@@ -42,6 +42,16 @@
             <div class="row" style="color:transparent"> .</div>
             <div class="row">
                 <div class="col-sm-2">
+                    <label asp-for="VerifiedEmail"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="VerifiedEmail" placeholder="Ex. kalle@gmail.com">
+                    <span asp-validation-for="VerifiedEmail"></span>
+                </div>
+            </div>
+            <div class="row" style="color:transparent"> .</div>
+            <div class="row">
+                <div class="col-sm-2">
                     <label asp-for="PhoneNumber"></label>
                 </div>
                 <div class="col-sm-4">
@@ -55,18 +65,18 @@
                     <label asp-for="Password"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="Password" placeholder="Lösenord">
+                    <input type="password" asp-for="Password" placeholder="Lösenord">
                     <span asp-validation-for="Password"></span>
                 </div>
             </div>
             <div class="row" style="color:transparent"> .</div>
             <div class="row">
                 <div class="col-sm-2">
-                    <label>Upprepa</label> <label asp-for="Password"></label><label>et </label>
+                    <label>Upprepa</label> <label asp-for="VerifiedPassword"></label><label>et </label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="Password" placeholder="Lösenord">
-                    <span asp-validation-for="Password"></span>
+                    <input type="password" asp-for="VerifiedPassword" placeholder="Lösenord">
+                    <span asp-validation-for="VerifiedPassword"></span>
                 </div>
             </div>
             <div class="row" style="color:transparent"> .</div>
