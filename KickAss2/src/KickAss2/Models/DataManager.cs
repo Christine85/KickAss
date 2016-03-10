@@ -22,16 +22,19 @@ namespace KickAss2.Models
 
             //kolla hur många som finns med samma email
             var result = context.Users.Count(o => o.Email.Equals(viewModel.Email));
-            
+
             if (result == 0)
             {
-                user.UserId = 1;
                 user.FirstName = viewModel.FirstName;
                 user.LastName = viewModel.LastName;
                 user.Email = viewModel.Email;
                 user.PhoneNumber = viewModel.PhoneNumber;
 
                 context.Users.Add(user);
+                context.SaveChanges();
+
+                //sparar ID för den nya användaren
+                UserID = user.UserId;
 
                 var security = new Security();
 
@@ -40,12 +43,6 @@ namespace KickAss2.Models
 
                 context.Securitys.Add(security);
                 context.SaveChanges();
-
-                //spara ID för den nya användaren
-                UserID = Convert.ToInt32(context.Users
-                    .Where(o => o.Email == viewModel.Email)
-                    .Select(o => o.UserId)
-                    .ToString());
 
                 //true om kund lagts till i DB
                 return true;

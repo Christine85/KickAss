@@ -15,7 +15,7 @@
                     <label asp-for="FirstName"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="FirstName" placeholder="Förnamn">
+                    <input asp-for="FirstName" class="form-control" placeholder="Förnamn">
                     <span asp-validation-for="FirstName"></span>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                     <label asp-for="LastName"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="LastName" placeholder="Efternamn">
+                    <input asp-for="LastName" class="form-control" placeholder="Efternamn">
                     <span asp-validation-for="LastName"></span>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <label asp-for="Email"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="Email" placeholder="Ex. kalle@gmail.com">
+                    <input asp-for="Email" class="form-control" placeholder="Ex. kalle@gmail.com">
                     <span asp-validation-for="Email"></span>
                 </div>
             </div>
@@ -45,7 +45,7 @@
                     <label asp-for="VerifiedEmail"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="VerifiedEmail" placeholder="Ex. kalle@gmail.com">
+                    <input asp-for="VerifiedEmail" class="form-control" placeholder="Ex. kalle@gmail.com">
                     <span asp-validation-for="VerifiedEmail"></span>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                     <label asp-for="PhoneNumber"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="PhoneNumber" placeholder="Ex. 0708460256">
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Ex. 0708460256">
                     <span asp-validation-for="PhoneNumber"></span>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                     <label asp-for="Password"></label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="password" asp-for="Password" placeholder="Lösenord">
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Lösenord">
                     <span asp-validation-for="Password"></span>
                 </div>
             </div>
@@ -75,14 +75,14 @@
                     <label>Upprepa</label> <label asp-for="VerifiedPassword"></label><label>et </label>
                 </div>
                 <div class="col-sm-4">
-                    <input type="password" asp-for="VerifiedPassword" placeholder="Lösenord">
+                    <input type="password" asp-for="VerifiedPassword" class="form-control" placeholder="Lösenord">
                     <span asp-validation-for="VerifiedPassword"></span>
                 </div>
             </div>
             <div class="row" style="color:transparent"> .</div>
             <div class="row">
                 <div class="col-sm-2">
-                    <input type="submit" value="Registrera" />
+                    <input type="submit" value="Registrera" class="btn btn-success" style="background-color: forestgreen" />
                 </div>
                 <div class="col-sm-4">
                 </div>

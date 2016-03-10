@@ -17,7 +17,7 @@ namespace KickAss2
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Data Source=kickass.database.windows.net;Initial Catalog=KickAssDataBase;Integrated Security=False;User ID=kickass;Password=********;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            var connString = @"Data Source=kickass.database.windows.net;Initial Catalog=KickAssDataBase;Integrated Security=False;User ID=kickass;Password=P@ssword;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddEntityFramework()
             .AddSqlServer()
             .AddDbContext<KickAssDataBaseContext>(o =>
