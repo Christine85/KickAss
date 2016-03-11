@@ -30,8 +30,7 @@ namespace KickAss2.Controllers
                 return View(new CurrentUserVM{
                     UserName = currentUser
                 });
-            }
-             
+            }            
 
             return View();
         }
@@ -52,14 +51,17 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
-                    HttpContext.Session.SetString("email", viewModel.Email);
-                    
+                    var currentUser = dataManager.GetUser(viewModel.Email);
+                    HttpContext.Session.SetString("namn", currentUser[0].UserName);
+                    HttpContext.Session.SetString("email", currentUser[1].Email);
+                    HttpContext.Session.SetString("admin", currentUser[2].IsAdmin.ToString());
+
                     return RedirectToAction(nameof(HomeController.Index));
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Fel vid inloggning, checka email eller lösenordet");
-                    return View(viewModel);
+                    return View();
                 }
             }
             catch (Exception e)
@@ -67,6 +69,12 @@ namespace KickAss2.Controllers
                 ModelState.AddModelError(string.Empty, e.Message);
                 return View(viewModel);
             }
+        }
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction(nameof(HomeController.Index));
         }
     }
 }

@@ -50,6 +50,52 @@ namespace KickAss2.Controlllers
                 ModelState.AddModelError(string.Empty, e.Message);
                 return View(viewModel);
             }
-        }             
+        }
+        public IActionResult CheckOrderHistory(OrderHistoryVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+
+            try
+            {
+                var dataManager = new DataManager(context);
+                var orderHistory = dataManager.OrderHistory(viewModel);
+
+                if (orderHistory.Count > 0)
+                {
+                    return View(viewModel);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Oj nu hände något!");
+                    return View();
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(viewModel);
+            }
+        }
+
+        public IActionResult CheckOrderHistory(int orderID)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            try
+            {
+                var dataManager = new DataManager(context);
+                var orderDetails = dataManager.OrderDetails(orderID);
+
+                return View(orderDetails);
+                
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View();
+            }
+        }
     }
 }

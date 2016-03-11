@@ -6,6 +6,19 @@
     </div>
 }
 
+<script>
+    $(document).ready(function () {
+        //called when key is pressed in textbox
+        $("#quantity").keypress(function (e) {
+            //if the letter is not digit then display error and don't type anything
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                //display error message
+                $("#errmsg").html("Bara siffror tack ditt nöthuvud!").show().fadeOut("slow");
+                return false;
+            }
+        });
+    });
+</script>
 
 <style>
     .carousel-inner > .item > img,
@@ -14,28 +27,49 @@
         height: 100%;
         margin: auto;
     }
+
+    #errmsg {
+        color: red;
+    }
+
+    .numbersTextBox{
+        float: left;
+        width: 50px;
+    }
 </style>
 
-<div id="row1" class="row" style="padding: 5px"; text-align: center>
+<div id="row1" class="row" style="padding: 5px" ; text-align center>
     <div class="col-sm-12">
         <h1 style="text-align: center">Inspiration</h1>
     </div>
 </div>
 <div id="row2" class="row" style="padding: 5px; text-align: center">
     <div class="col-sm-4">
-        <img src="~/images/Almanackor.jpg" class="img-responsive" style="width: 100%; height: 100%"/>
+        <img src="~/images/Almanackor.jpg" class="img-responsive" style="width: 100%; height: 100%" />
         <p style="text-align: left; font-weight: bold">Almanacka, 39 kr</p>
         <p style="text-align: left">En stilig almanack i A5 format</p>
+        </span><form asp-controller="Home" asp-action="AddToCart">
+        <input type="text" class="numbersTextBox" name="quantity" id="quantity" />&nbsp;<span id="errmsg">
+        <button type="button" class="btn btn-success btn-xs" style="background-color: forestgreen; float: left;"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+        </form>
     </div>
     <div class="col-sm-4">
-        <img src="~/images/Pennor.jpg" class="img-responsive" style="width: 100%; height: 100%"/>
+        <img src="~/images/Pennor.jpg" class="img-responsive" style="width: 100%; height: 100%" />
         <p style="text-align: left; font-weight: bold">Pennor, 199 kr</p>
         <p style="text-align: left">Två stycken <i><b>must have</b></i> Kickass pennor</p>
+        </span><form asp-controller="Home" asp-action="AddToCart">
+            <input type="text" class="numbersTextBox" name="quantity" id="quantity" />&nbsp;<span id="errmsg">
+                <button type="button" class="btn btn-success btn-xs" style="background-color: forestgreen; float: left;"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+        </form>
     </div>
     <div class="col-sm-4">
-        <img src="~/images/Kuvert.jpg" class="img-responsive" style="width: 100%; height: 100%"/>
+        <img src="~/images/Kuvert.jpg" class="img-responsive" style="width: 100%; height: 100%" />
         <p style="text-align: left; font-weight: bold">Kuvert, 29 kr</p>
         <p style="text-align: left">50 stycken C5 kuvert</p>
+        </span><form asp-controller="Home" asp-action="AddToCart">
+            <input type="text" class="numbersTextBox" name="quantity" id="quantity" />&nbsp;<span id="errmsg">
+                <button type="button" class="btn btn-success btn-xs" style="background-color: forestgreen; float: left;"><span class="glyphicon glyphicon-shopping-cart"></span></button>
+        </form>
     </div>
 </div>
 
