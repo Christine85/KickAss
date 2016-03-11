@@ -1,0 +1,19 @@
+﻿#verticalLines {
+    border-left: solid thin;
+    border-left-color: #d7d7d7;
+    border-right: solid thin;
+    border-right-color: #d7d7d7;
+}
+
+#leftAlignLi {
+    padding-left: 13pt;
+}
+
+#hoverLink {
+    color: #000000;
+}
+
+a:hover {
+    color: forestgreen;
+}
+
