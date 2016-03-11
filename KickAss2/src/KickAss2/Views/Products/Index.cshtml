@@ -1,20 +1,22 @@
 ﻿@using KickAss2.ViewModels
 @model List<ListProductVM>
 
-<table>
-    <tr>
-        <th>Produktnam</th>
-        <th>Beskrivning</th>
-        <th>Pris</th>
-    </tr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"><label>Produktnam</label></div>
+        <div class="col-sm-2"><label>Beskrivning</label></div>
+        <div class="col-sm-2"><label>Pris</label></div>
+    </div>
     @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Description</td>
-            <td>@item.Price</td>
-        </tr>
-    }
-</table>
+            {
+        <div class="row">
+            <div class="col-sm-2">@item.Name</div>
+            <div class="col-sm-2">@item.Description</div>
+            <div class="col-sm-2">@item.Price</div>
+    <div class="col-sm-2">@item.Price</div>
+        </div>    }
+</div>
+
+
 
 
