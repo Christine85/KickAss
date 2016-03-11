@@ -51,17 +51,17 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
-                    //var currentUser = dataManager.GetUser(viewModel.Email);
-                    //HttpContext.Session.SetString("namn", currentUser[0]);
-                    HttpContext.Session.SetString("email", viewModel.Email);
-                    //HttpContext.Session.SetBool("admin", currentUser[2]);
+                    var currentUser = dataManager.GetUser(viewModel.Email);
+                    HttpContext.Session.SetString("namn", currentUser[0].UserName);
+                    HttpContext.Session.SetString("email", currentUser[1].Email);
+                    HttpContext.Session.SetString("admin", currentUser[2].IsAdmin.ToString());
 
                     return RedirectToAction(nameof(HomeController.Index));
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Fel vid inloggning, checka email eller lösenordet");
-                    return View(viewModel);
+                    return View();
                 }
             }
             catch (Exception e)
