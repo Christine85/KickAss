@@ -9,7 +9,7 @@ namespace KickAss2.ViewModels
     {
         public string UserName { get; set; }
         public string Email { get; set; }
-        public bool IsAdmin { get; set; }
+        public string IsAdmin { get; set; }
 
         
     }

@@ -78,7 +78,7 @@ namespace KickAss2.Controlllers
             }
         }
 
-        public IActionResult CheckOrderHistory(int orderID)
+        public IActionResult CheckOrderDetail(int orderID)
         {
             if (!ModelState.IsValid)
                 return View();
