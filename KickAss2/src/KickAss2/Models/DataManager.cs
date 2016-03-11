@@ -134,9 +134,9 @@ namespace KickAss2.Models
                      UserName = o.FirstName,
                      Email = o.Email,
                      IsAdmin = o.IsAdmin
-                     
+
                  })
                  .ToArray();
-        }
+        }       
     }
 }
