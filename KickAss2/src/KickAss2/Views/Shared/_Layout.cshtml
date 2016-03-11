@@ -11,7 +11,8 @@
 	<style>
 		a
 		{
-			color: grey
+			color: grey;
+
 		}
 		a:hover
 		{
@@ -56,34 +57,30 @@
 									<li class="dropdown">
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
 										<ul class="dropdown-menu">
-											<!-- Get categories, print main category, look for sub-categories, continue -->
-											@*@foreach (var category in (List<CategoryVM>)ViewData["Categories"])
-											{
-												if (category.ParentID == 0)
-												{
-													<li><b><a href="#category@category.CategoryID">@category.Name</a></b></li> }
-												foreach (var subcategory in (List<CategoryVM>)ViewData["Categories"])
-												{
-													if (category.CategoryID == subcategory.ParentID)
-													{
-														<li><a href="#category@subcategory.CategoryID">@subcategory.Name</a></li> }
-												}
-											}*@
-									<!-- end of categories -->
-								</ul>
+											<!--  #region categories -->
+											<li><b><a href="#category@category.CategoryID">Huvudkategori 1</a></b></li>
+											<li><a href="#category@subcategory.CategoryID">Underkategori 1.1</a></li>
+											<li><a href="#category@subcategory.CategoryID">Underkategori 1.1</a></li>
 
-                                    </li>
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="/KickAssInformation/ContactUs">Kontakta oss</a></li>
-                                            <li><a href="/KickAssInformation/About">Företagsinformation</a></li>
-                                            <li><a href="/KickAssInformation/Questions">Vanliga frågor</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
-                                    <li><a href="#"><input type="text" name="FirstName" placeholder="Ange sökordet"> <span class="glyphicon glyphicon-search"></span> Sök</a></li>
-                                </ul>
+
+											<li><b><a href="#category@category.CategoryID">Huvudkategori 2</a></b></li>
+											<li><a href="#category@subcategory.CategoryID">Underkategori 2.1</a></li>
+
+										</ul>
+
+									</li>
+									<!--  #endregion categories -->
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="/KickAssInformation/ContactUs">Kontakta oss</a></li>
+											<li><a href="/KickAssInformation/About">Företagsinformation</a></li>
+											<li><a href="/KickAssInformation/Questions">Vanliga frågor</a></li>
+										</ul>
+									</li>
+									<li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
+									<li><a href="#"><input type="text" name="FirstName" placeholder="Ange sökordet"> <span class="glyphicon glyphicon-search"></span> Sök</a></li>
+								</ul>
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
                                     <li><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
@@ -105,9 +102,9 @@
     <script src="~/Script/jquery.min.js"></script>
     @RenderSection("script", false)
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color:#222222;">
         <div class="row">
-            <!-- #region Fotter -->
+            <!-- #region Footer -->
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-earphone"></span> Kontakta oss</h4>
                 <p>+46 708 460 256</p>
@@ -120,15 +117,15 @@
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-question-sign"></span> Hjälp</h4>
-                <p>Vanliga frågor</p>
+				<p><a href="/KickAssInformation/Questions">Vanliga frågor</a></p>
                 <p>Säkerhetspolicy</p>
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-user"></span> Mitt Konto</h4>
-				<a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a><br><br>
-				<a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a>
+				<p><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></p>
+				<p><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></p>
 
-            </div>
+</div>
             <!-- #endregion -->
         </div>
     </div>
