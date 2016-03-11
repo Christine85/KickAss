@@ -92,7 +92,8 @@ namespace KickAss2.Models
                 {
                     Name = c.ProductName,
                     Description = c.Description,
-                    Price = c.Price
+                    Price = c.Price,
+                    Status = c.Status
                 })
                 .ToList();
         }
@@ -133,9 +134,9 @@ namespace KickAss2.Models
                      UserName = o.FirstName,
                      Email = o.Email,
                      IsAdmin = o.IsAdmin
-                     
+
                  })
                  .ToArray();
-        }
+        }       
     }
 }
