@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using KickAss2.ViewModels;
 using Microsoft.AspNet.Mvc.Rendering;
 using KickAss2.Models;
+using Microsoft.AspNet.Http;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,6 +23,8 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
+            ViewBag.Message = HttpContext.Session.GetString("Test");
+
             return View();
         }
         public IActionResult LogIn()
@@ -41,6 +44,8 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
+                    HttpContext.Session.SetString("email", viewModel.Email);
+                    
                     return RedirectToAction(nameof(HomeController.Index));
                 }
                 else

@@ -23,11 +23,14 @@ namespace KickAss2
             .AddDbContext<KickAssDataBaseContext>(o =>
                 o.UseSqlServer(connString));
             services.AddMvc();
+            services.AddCaching();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app)
         {
+            app.UseSession();
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
             app.UseMvcWithDefaultRoute();
