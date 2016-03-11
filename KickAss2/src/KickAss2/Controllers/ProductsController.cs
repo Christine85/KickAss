@@ -6,6 +6,7 @@ using Microsoft.AspNet.Mvc;
 using KickAss2.ViewModels;
 using Microsoft.AspNet.Mvc.Rendering;
 using KickAss2.Models;
+using Microsoft.AspNet.Http;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,7 +25,7 @@ namespace KickAss2.Controllers
         {
             var dataManager = new DataManager(context);
             var model = dataManager.ListProducts();
-            return View(model);
+            return View(new SessionVM { ProductListVM= model } );
         }
         [HttpGet]
         public IActionResult CreateProduct()
@@ -68,13 +69,15 @@ namespace KickAss2.Controllers
             if (HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart") == null)
             {
                 shoppingCart = new List<ListProductVM>();
+                shoppingCart.Add(viewModel);
+                HttpContext.Session.SetObjectAsJson("shoppingCart", shoppingCart);
+                return RedirectToAction(nameof(ProductsController.Index));
             }
             shoppingCart = HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart");
             shoppingCart.Add(viewModel);
             HttpContext.Session.SetObjectAsJson("shoppingCart", shoppingCart);
-
+            
             return RedirectToAction(nameof(ProductsController.Index));
         }
-
     }
 }

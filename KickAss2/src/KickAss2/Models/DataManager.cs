@@ -90,7 +90,7 @@ namespace KickAss2.Models
                 .OrderBy(c => c.CategoryId)
                 .Select(c => new ListProductVM
                 {
-                    Name = c.Name,
+                    Name = c.ProductName,
                     Description = c.Description,
                     Price = c.Price
                 })
@@ -100,7 +100,7 @@ namespace KickAss2.Models
         {
             var product = new Product();
 
-            product.Name = viewModel.Name;
+            product.ProductName = viewModel.Name;
             product.Description = viewModel.Description;
             product.Price = viewModel.Price;
             product.Stock = viewModel.Stock;

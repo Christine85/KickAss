@@ -1,5 +1,5 @@
 ﻿@using KickAss2.ViewModels
-@model List<ListProductVM>
+@model SessionVM
 
 <div class="container-fluid">
     <div class="row">
@@ -8,7 +8,7 @@
         <div class="col-sm-2"><label>Pris</label></div>
         <div class="col-sm-2"><label>Lägg till i varukorg</label></div>
     </div>
-    @foreach (var item in Model)
+    @foreach (var item in Model.ProductListVM)
             {
         <div class="row">
             <div class="col-sm-2">@item.Name</div>

@@ -23,7 +23,7 @@
 </head>
 <body>
 
-    @model CurrentUserVM
+    @model SessionVM
 
 
     <div class="container">
@@ -36,8 +36,8 @@
                     <p class="hidden-xs" style="color: transparent;">.</p>
                     @if (Model != null)
                     {
-                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.UserName"</p>
-                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.UserName"</p>
+                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.CurrentUserVM.UserName"</p>
+                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.CurrentUserVM.UserName"</p>
                     }
                     else
                     {

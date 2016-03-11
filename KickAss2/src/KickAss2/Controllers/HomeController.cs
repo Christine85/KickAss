@@ -27,8 +27,12 @@ namespace KickAss2.Controllers
             string currentUser = HttpContext.Session.GetString("email");
             if (currentUser != null)
             {
-                return View(new CurrentUserVM{
-                    UserName = currentUser
+                return View(new SessionVM {
+
+                    CurrentUserVM = new CurrentUserVM
+                    {
+                        Email = currentUser
+                    }
                 });
             }            
 
@@ -73,7 +77,7 @@ namespace KickAss2.Controllers
         public IActionResult LogOut()
         {
             HttpContext.Session.Clear();
-
+            
             return RedirectToAction(nameof(HomeController.Index));
         }
     }
