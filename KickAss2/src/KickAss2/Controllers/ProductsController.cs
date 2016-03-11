@@ -19,19 +19,12 @@ namespace KickAss2.Controllers
         {
             this.context = context;
         }
-
-
-
-
         public IActionResult Index()
         {
             var dataManager = new DataManager(context);
             var model = dataManager.ListProducts();
             return View(model);
         }
-
-
-
         [HttpGet]
         public IActionResult CreateProduct()
         {
@@ -49,9 +42,6 @@ namespace KickAss2.Controllers
 
             return RedirectToAction(nameof(ProductsController.Index));
         }
-
-
-
         public IActionResult Create()
         {
             var model = new CreateProductVM();
@@ -71,11 +61,13 @@ namespace KickAss2.Controllers
             return View(model);
         }
 
+        public IActionResult AddProductToCart(ListProductVM viewModel)
+        {
+            var shoppingCart = HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart");
 
 
-
-
-
+            return RedirectToAction(nameof(ProductsController.Index));
+        }
 
     }
 }
