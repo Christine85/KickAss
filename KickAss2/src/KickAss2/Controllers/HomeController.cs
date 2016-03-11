@@ -51,8 +51,11 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
+                    //var currentUser = dataManager.GetUser(viewModel.Email);
+                    //HttpContext.Session.SetString("namn", currentUser[0]);
                     HttpContext.Session.SetString("email", viewModel.Email);
-                    
+                    //HttpContext.Session.SetBool("admin", currentUser[2]);
+
                     return RedirectToAction(nameof(HomeController.Index));
                 }
                 else

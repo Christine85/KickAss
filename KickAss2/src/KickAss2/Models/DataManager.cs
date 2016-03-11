@@ -48,7 +48,7 @@ namespace KickAss2.Models
 
                 //true om kund lagts till i DB
                 return true;
-                
+
             }
 
             else
@@ -99,7 +99,7 @@ namespace KickAss2.Models
         public void CreateProduct(CreateProductVM viewModel)
         {
             var product = new Product();
-                        
+
             product.Name = viewModel.Name;
             product.Description = viewModel.Description;
             product.Price = viewModel.Price;
@@ -116,12 +116,26 @@ namespace KickAss2.Models
 
             if (check)
             {
+
                 return true;
             }
             else
             {
                 return false;
             }
+        }
+        public CurrentUserVM[] GetUser(string email)
+        {
+            return context.Users
+                 .Where(o => o.Email == email)
+                 .Select(o => new CurrentUserVM
+                 {
+                     UserName = o.FirstName,
+                     Email = o.Email,
+                     IsAdmin = o.IsAdmin
+                     
+                 })
+                 .ToArray();
         }
     }
 }
