@@ -15,6 +15,7 @@ namespace KickAss2.Controllers
     public class HomeController : Controller
     {
         KickAssDataBaseContext context;
+   
 
         public HomeController(KickAssDataBaseContext context)
         {
@@ -23,7 +24,7 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Message = HttpContext.Session.GetString("Test");
+            ViewBag.Message = HttpContext.Session.GetString("email");
 
             return View();
         }
