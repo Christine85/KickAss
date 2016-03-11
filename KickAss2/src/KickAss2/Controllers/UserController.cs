@@ -36,6 +36,7 @@ namespace KickAss2.Controlllers
 
                 if (check == true)
                 {
+                    //return RedirectToAction(nameof(HomeController.LogIn));
                     return RedirectToAction(nameof(HomeController.LogIn));
                 }
                 else

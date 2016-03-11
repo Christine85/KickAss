@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Mvc;
+
 
 namespace KickAss2.Models
 {
@@ -46,6 +48,7 @@ namespace KickAss2.Models
 
                 //true om kund lagts till i DB
                 return true;
+                
             }
 
             else
