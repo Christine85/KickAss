@@ -92,7 +92,8 @@ namespace KickAss2.Models
                 {
                     Name = c.ProductName,
                     Description = c.Description,
-                    Price = c.Price
+                    Price = c.Price,
+                    Status = c.Status
                 })
                 .ToList();
         }
