@@ -23,6 +23,9 @@
 </head>
 <body>
 
+    @model CurrentUserVM
+
+
     <div class="container">
         <div class="container-fluid">
             <div id="row1" class="row" style="padding: 5px">
@@ -31,9 +34,17 @@
                 </div>
                 <div class="col-sm-9" style="text-align: center;">
                     <p class="hidden-xs" style="color: transparent;">.</p>
-                    <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
-                    <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
-                </div>
+                    @if (Model != null)
+                    {
+                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.UserName"</p>
+                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.UserName"</p>
+                    }
+                    else
+                    {
+                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                    }
+                    </div>
             </div>
             <div id="row2" class="row">
                 <!-- #region Navbar -->

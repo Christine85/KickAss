@@ -1,6 +1,8 @@
-﻿@if (false)
+﻿@model CurrentUserVM
+@if (Model != null)
 {
-
+    <li><a href="/home/MyPages"><span class="glyphicon glyphicon-user"></span> Mina Sidor</a></li>
+    <li><a href="/home/logout"><span class="glyphicon glyphicon-log-in"></span> Logga ut</a></li>
 }
 else
 {
