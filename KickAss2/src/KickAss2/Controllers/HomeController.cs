@@ -22,108 +22,19 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-
 			List<CategoryVM> categories = new List<CategoryVM>();
-			//TODO: Info from database
-			categories.Add(new CategoryVM()
-			{
-				Name = "Pennor",
-				ParentID = 0,
-				CategoryID = 1
-			}); categories.Add(new CategoryVM()
-			{
-				Name = "Blyertspennor",
-				ParentID = 1,
-				CategoryID = 5
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Tejp",
-				ParentID = 0,
-				CategoryID = 2
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Gem",
-				ParentID = 0,
-				CategoryID = 3
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Häftapparater",
-				ParentID = 0,
-				CategoryID = 4
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Bläckpennor",
-				ParentID = 1,
-				CategoryID = 6
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Dubbelhäftad tejp",
-				ParentID = 2,
-				CategoryID = 7
-			});
-			//
 
 			var view = View();
 			view.ViewData["Categories"] = categories;
 
 			return View();
         }
-        public IActionResult LogIn()
-        {
-			List<CategoryVM> categories = new List<CategoryVM>();
-			//TODO: Info from database
-			categories.Add(new CategoryVM()
-			{
-				Name = "Pennor",
-				ParentID = 0,
-				CategoryID = 1
-			}); categories.Add(new CategoryVM()
-			{
-				Name = "Blyertspennor",
-				ParentID = 1,
-				CategoryID = 5
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Tejp",
-				ParentID = 0,
-				CategoryID = 2
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Gem",
-				ParentID = 0,
-				CategoryID = 3
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Häftapparater",
-				ParentID = 0,
-				CategoryID = 4
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Bläckpennor",
-				ParentID = 1,
-				CategoryID = 6
-			});
-			categories.Add(new CategoryVM()
-			{
-				Name = "Dubbelhäftad tejp",
-				ParentID = 2,
-				CategoryID = 7
-			});
-			//
 
-			var view = View();
-			view.ViewData["Categories"] = categories;
-			
-            return View();
+
+		public IActionResult LogIn()
+        {
+
+			return View();
         }
         [HttpPost]
         public IActionResult LogIn(LogInUserVM viewModel)
