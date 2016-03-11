@@ -19,5 +19,15 @@ namespace KickAss2.Controlllers
         {
             return View();
         }
+
+        public IActionResult Questions()
+        {
+            return View();
+        }
+
+        public IActionResult About()
+        {
+            return View();
+        }
     }
 }
