@@ -21,7 +21,9 @@
 </head>
 <body>
 
-    @model SessionVM
+    @model Tuple<LogInUserVM, CurrentUserVM>
+
+    @*@model SessionVM*@
 
 
     <div class="container">
@@ -32,10 +34,10 @@
                 </div>
                 <div class="col-sm-9" style="text-align: center;">
                     <p class="hidden-xs" style="color: transparent;">.</p>
-                    @if (Model != null)
+                    @if (Model != null && Model.Item2 != null)
                     {
-                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.CurrentUserVM.UserName"</p>
-                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.CurrentUserVM.UserName"</p>
+                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.Item2.UserName"</p>
+                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.Item2.UserName"</p>
                     }
                     else
                     {
@@ -99,7 +101,7 @@
                 </div>
                 <!-- #endregion -->
             </div>
-@if (Model != null)
+@if (Model != null && Model.Item2 != null)
 {
             <!-- #region Admin Navbar -->
             <div id="rowAdmin" class="row">

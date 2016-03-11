@@ -125,7 +125,7 @@ namespace KickAss2.Models
                 return false;
             }
         }
-        public CurrentUserVM[] GetUser(string email)
+        public CurrentUserVM GetUser(string email)
         {
             return context.Users
                  .Where(o => o.Email == email)
@@ -136,7 +136,7 @@ namespace KickAss2.Models
                      IsAdmin = o.IsAdmin
 
                  })
-                 .ToArray();
+                 .Single();
         }       
     }
 }

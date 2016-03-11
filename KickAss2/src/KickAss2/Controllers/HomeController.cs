@@ -30,14 +30,20 @@ namespace KickAss2.Controllers
 
             if (currentUserEmail != null)
             {
-                return View(new CurrentUserVM{
+                               
+                var currentUser = new CurrentUserVM
+                {
                     UserName = currentUserEmail,
                     Email = currentUserEmail,
-                    IsAdmin = Convert.ToBoolean(currentUserIsAdmin)
-                });
-            }            
+                    IsAdmin = currentUserIsAdmin
+                };
 
-            return View();
+                var tuple = new Tuple<LogInUserVM, CurrentUserVM>(new LogInUserVM(), currentUser);
+                return View(tuple);
+            }
+            else
+                
+                return View();
         }
         public IActionResult LogIn()
         {
@@ -56,10 +62,11 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
-                    var currentUser = dataManager.GetUser(viewModel.Email);
-                    HttpContext.Session.SetString("namn", currentUser[0].UserName);
-                    HttpContext.Session.SetString("email", currentUser[1].Email);
-                    HttpContext.Session.SetString("admin", currentUser[2].IsAdmin.ToString());
+                    var email = viewModel.Email;
+                    var currentUser = dataManager.GetUser(email);
+                    HttpContext.Session.SetString("namn", currentUser.UserName);
+                    HttpContext.Session.SetString("email", currentUser.Email);
+                    HttpContext.Session.SetString("admin", currentUser.IsAdmin.ToString());
 
                     return RedirectToAction(nameof(HomeController.Index));
                 }
