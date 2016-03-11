@@ -45,13 +45,13 @@ namespace KickAss2.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Felmeddelande, checka fel");
+                    ModelState.AddModelError(string.Empty, "Fel vid inloggning, checka email eller lösenordet");
                     return View(viewModel);
                 }
             }
             catch (Exception e)
             {
-                ModelState.AddModelError(string.Empty, e.InnerException.Message);
+                ModelState.AddModelError(string.Empty, e.Message);
                 return View(viewModel);
             }
         }

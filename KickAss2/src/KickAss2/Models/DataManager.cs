@@ -110,7 +110,9 @@ namespace KickAss2.Models
 
         public bool LogIn(LogInUserVM viewModel)
         {
-            if (context.Securitys.Any(o => o.Email.Equals(viewModel.Email) && o.Password.Equals(viewModel.Password)))
+            var check = context.Securitys.Any(o => o.Email.Equals(viewModel.Email) && o.Password.Equals(viewModel.Password));
+
+            if (check)
             {
                 return true;
             }
