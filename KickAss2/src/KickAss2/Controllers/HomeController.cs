@@ -26,7 +26,9 @@ namespace KickAss2.Controllers
         {
             ViewBag.Message = HttpContext.Session.GetString("email");
 
-            return View();
+            string session = ViewBag.Message;
+
+            return View(session);
         }
         public IActionResult LogIn()
         {
