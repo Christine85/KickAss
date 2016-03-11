@@ -14,6 +14,7 @@ namespace KickAss2.Controllers
     public class ProductsController : Controller
     {
         KickAssDataBaseContext context;
+        
 
         public ProductsController(KickAssDataBaseContext context)
         {
@@ -63,8 +64,14 @@ namespace KickAss2.Controllers
 
         public IActionResult AddProductToCart(ListProductVM viewModel)
         {
-            var shoppingCart = HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart");
-
+            List<ListProductVM> shoppingCart;
+            if (HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart") == null)
+            {
+                shoppingCart = new List<ListProductVM>();
+            }
+            shoppingCart = HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart");
+            shoppingCart.Add(viewModel);
+            HttpContext.Session.SetObjectAsJson("shoppingCart", shoppingCart);
 
             return RedirectToAction(nameof(ProductsController.Index));
         }

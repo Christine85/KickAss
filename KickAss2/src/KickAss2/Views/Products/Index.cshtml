@@ -6,6 +6,7 @@
         <div class="col-sm-2"><label>Produktnam</label></div>
         <div class="col-sm-2"><label>Beskrivning</label></div>
         <div class="col-sm-2"><label>Pris</label></div>
+        <div class="col-sm-2"><label>Lägg till i varukorg</label></div>
     </div>
     @foreach (var item in Model)
             {
@@ -13,8 +14,10 @@
             <div class="col-sm-2">@item.Name</div>
             <div class="col-sm-2">@item.Description</div>
             <div class="col-sm-2">@item.Price</div>
-    <div class="col-sm-2">@item.Price</div>
-        </div>    }
+            <form asp-controller="Products" asp-action="AddProductToCart">
+                <div class="col-sm-2"><input type="submit" value="+" class="btn btn-success" style="background-color: forestgreen" /></div>
+                </form>
+</div>    }
 </div>
 
 

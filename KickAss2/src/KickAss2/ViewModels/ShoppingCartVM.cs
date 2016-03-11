@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 
 namespace KickAss2.ViewModels
 {
-    public class CurrentUserVM
+    public class ShoppingCartVM
     {
-        public string UserName { get; set; }
-
 
     }
 }
