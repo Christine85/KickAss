@@ -30,8 +30,7 @@ namespace KickAss2.Controllers
                 return View(new CurrentUserVM{
                     UserName = currentUser
                 });
-            }
-             
+            }            
 
             return View();
         }
@@ -67,6 +66,12 @@ namespace KickAss2.Controllers
                 ModelState.AddModelError(string.Empty, e.Message);
                 return View(viewModel);
             }
+        }
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction(nameof(HomeController.Index));
         }
     }
 }

@@ -96,8 +96,7 @@ namespace KickAss2.Models
         public void CreateProduct(CreateProductVM viewModel)
         {
             var product = new Product();
-
-            product.ProductId = 1;
+                        
             product.Name = viewModel.Name;
             product.Description = viewModel.Description;
             product.Price = viewModel.Price;
