@@ -24,11 +24,16 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            string currentUser = HttpContext.Session.GetString("email");
-            if (currentUser != null)
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
+
+            if (currentUserEmail != null)
             {
                 return View(new CurrentUserVM{
-                    UserName = currentUser
+                    UserName = currentUserEmail,
+                    Email = currentUserEmail,
+                    IsAdmin = Convert.ToBoolean(currentUserIsAdmin)
                 });
             }            
 
@@ -51,14 +56,17 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
-                    HttpContext.Session.SetString("email", viewModel.Email);
-                    
+                    var currentUser = dataManager.GetUser(viewModel.Email);
+                    HttpContext.Session.SetString("namn", currentUser[0].UserName);
+                    HttpContext.Session.SetString("email", currentUser[1].Email);
+                    HttpContext.Session.SetString("admin", currentUser[2].IsAdmin.ToString());
+
                     return RedirectToAction(nameof(HomeController.Index));
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Fel vid inloggning, checka email eller lösenordet");
-                    return View(viewModel);
+                    return View();
                 }
             }
             catch (Exception e)

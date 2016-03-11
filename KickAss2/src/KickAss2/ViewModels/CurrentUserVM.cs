@@ -8,6 +8,9 @@ namespace KickAss2.ViewModels
     public class CurrentUserVM
     {
         public string UserName { get; set; }
+        public string Email { get; set; }
+        public bool IsAdmin { get; set; }
+
 
     }
 }
