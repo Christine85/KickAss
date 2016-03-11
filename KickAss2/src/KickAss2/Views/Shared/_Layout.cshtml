@@ -57,18 +57,7 @@
 										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
 										<ul class="dropdown-menu">
 											<!-- Get categories, print main category, look for sub-categories, continue -->
-											@foreach (var category in (List<CategoryVM>)ViewData["Categories"])
-											{
-												if (category.ParentID == 0)
-												{
-													<li><b><a href="#category@category.CategoryID">@category.Name</a></b></li> }
-												foreach (var subcategory in (List<CategoryVM>)ViewData["Categories"])
-												{
-													if (category.CategoryID == subcategory.ParentID)
-													{
-														<li><a href="#category@subcategory.CategoryID">@subcategory.Name</a></li> }
-												}
-											}
+
 									<!-- end of categories -->
 								</ul>
 
