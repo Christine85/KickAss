@@ -51,6 +51,33 @@ namespace KickAss2.Controlllers
                 return View(viewModel);
             }
         }
+        public IActionResult CheckOrderHistory(OrderHistoryVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+
+            try
+            {
+                var dataManager = new DataManager(context);
+                var orderHistory = dataManager.OrderHistory(viewModel);
+
+                if (orderHistory.Count > 0)
+                {
+                    return View(viewModel);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Oj nu hände något!");
+                    return View();
+                }
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(viewModel);
+            }
+        }
+
         //public IActionResult CheckOrderHistory(OrderHistoryVM viewModel)
         //{
         //    if (!ModelState.IsValid)
@@ -59,16 +86,16 @@ namespace KickAss2.Controlllers
         //    try
         //    {
         //        var dataManager = new DataManager(context);
-        //        bool check = dataManager.CreateUser(viewModel);
+        //        var orderHistory = dataManager.OrderHistory(viewModel);
 
-        //        if (check == true)
+        //        if (orderHistory.Count > 0)
         //        {
-        //            return RedirectToAction(nameof(HomeController.LogIn));
+        //            return View(viewModel);
         //        }
         //        else
         //        {
-        //            ModelState.AddModelError(string.Empty, "Mailadressen finns redan registrerad som kund");
-        //            return View(viewModel);
+        //            ModelState.AddModelError(string.Empty, "Oj nu hände något!");
+        //            return View();
         //        }
         //    }
         //    catch (Exception e)
