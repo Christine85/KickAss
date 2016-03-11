@@ -1,8 +1,8 @@
-﻿@model string
+﻿@model CurrentUserVM
 @if (Model != null)
 {
     <div>
-        Logged In as @Model
+        Logged In as @Model.UserName
     </div>
 }
 

@@ -24,11 +24,16 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Message = HttpContext.Session.GetString("email");
+            string currentUser = HttpContext.Session.GetString("email");
+            if (currentUser != null)
+            {
+                return View(new CurrentUserVM{
+                    UserName = currentUser
+                });
+            }
+             
 
-            string session = ViewBag.Message;
-
-            return View(session);
+            return View();
         }
         public IActionResult LogIn()
         {
