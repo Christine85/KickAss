@@ -7,6 +7,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>@ViewBag.Title</title>
+	<!-- style for links -->
+	<style>
+		a
+		{
+			color: grey
+		}
+		a:hover
+		{
+			color: white 
+		}
+	</style>
+	<!-- style end -->
 </head>
 <body>
 
@@ -39,14 +51,27 @@
                                 <a class="navbar-brand" href="/home/index">Kick Ass Kontorsprylar AB</a>
                             </div>
                             <div class="collapse navbar-collapse" id="myNavbar">
-                                <ul class="nav navbar-nav">
-                                    <li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-                                    <li class="dropdown">
-                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">Block</a></li>
-                                            <li><a href="#">Pennor</a></li>
-                                        </ul>
+								<ul class="nav navbar-nav">
+									<li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+									<li class="dropdown">
+										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
+										<ul class="dropdown-menu">
+											<!-- Get categories, print main category, look for sub-categories, continue -->
+											@foreach (var category in (List<CategoryVM>)ViewData["Categories"])
+											{
+												if (category.ParentID == 0)
+												{
+													<li><b><a href="#category@category.CategoryID">@category.Name</a></b></li> }
+												foreach (var subcategory in (List<CategoryVM>)ViewData["Categories"])
+												{
+													if (category.CategoryID == subcategory.ParentID)
+													{
+														<li><a href="#category@subcategory.CategoryID">@subcategory.Name</a></li> }
+												}
+											}
+									<!-- end of categories -->
+								</ul>
+
                                     </li>
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
@@ -86,7 +111,7 @@
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-earphone"></span> Kontakta oss</h4>
                 <p>+46 708 460 256</p>
-                <p>info@kickasskontorsprylar.nu</p>
+				<p><a href="mailto:info@kickasskontorsprylar.nu" target="_blank">info@kickasskontorsprylar.nu</a></p>
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-thumbs-up"></span> Följ oss</h4>
@@ -100,8 +125,9 @@
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-user"></span> Mitt Konto</h4>
-                <p>Logga in / Registrera</p>
-                <p>Glömt lösenord?</p>
+				<a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a><br><br>
+				<a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a>
+
             </div>
             <!-- #endregion -->
         </div>
