@@ -21,9 +21,7 @@
 </head>
 <body>
 
-    @model Tuple<LogInUserVM, CurrentUserVM>
 
-    @*@model SessionVM*@
 
 
     <div class="container">
@@ -35,7 +33,7 @@
                 <div class="col-sm-9" style="text-align: center;">
                     <p class="hidden-xs" style="color: transparent;">.</p>
 
-                    @Html.Partial("MyPageAndLogOut", Model)
+                    @Html.Partial("MyPageAndLogOut")
                 </div>
             </div>
             <div id="row2" class="row">
@@ -93,7 +91,7 @@
                 <!-- #endregion -->
             </div>
 
-            @Html.Partial("AdminNavBar", Model)
+            @Html.Partial("AdminNavBar")
 
         </div>
         <div id="row3" class="row">
@@ -101,7 +99,7 @@
             <p style="color: transparent">.</p>
         </div>
     </div>
-    </div>
+    
 
     <script src="~/Script/jquery.min.js"></script>
     @RenderSection("script", false)
