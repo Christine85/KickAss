@@ -29,11 +29,11 @@ namespace KickAss2.Controllers
             string currentUserName = HttpContext.Session.GetString("name");
             string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            if (currentUser != null)
+            if (currentUserEmail != null)
             {
                 currentUser = new CurrentUserVM
                 {
-                    UserName = currentUserEmail,
+                    UserName = currentUserName,
                     Email = currentUserEmail,
                     IsAdmin = currentUserIsAdmin
                 };
@@ -64,7 +64,7 @@ namespace KickAss2.Controllers
                     currentUser = dataManager.GetUser(email);
                     HttpContext.Session.SetString("namn", currentUser.UserName);
                     HttpContext.Session.SetString("email", currentUser.Email);
-                    HttpContext.Session.SetString("admin", currentUser.IsAdmin.ToString());
+                    HttpContext.Session.SetString("admin", currentUser.IsAdmin);
 
                     return RedirectToAction(nameof(HomeController.Index));
                 }
@@ -90,7 +90,7 @@ namespace KickAss2.Controllers
         }
         public IActionResult MyPage()
         {
-            return View(currentUser);
+            return View();
         }
     }
 }

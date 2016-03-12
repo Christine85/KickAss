@@ -38,12 +38,14 @@ namespace KickAss2.Models
                 //spara id för kunden
                 userID = user.UserId;
 
-                user.FirstName = viewModel.FirstName;
-                user.LastName = viewModel.LastName;
-                user.Email = viewModel.Email;
-                user.PhoneNumber = viewModel.PhoneNumber;
-                                
-                context.Users.Add(user);
+                var adress = new Address();
+
+                adress.Street = viewModel.Street;
+                adress.Zip = viewModel.Zip;
+                adress.City = viewModel.City;
+                adress.UserID = userID;
+
+                context.Addresses.Add(adress);
                 context.SaveChanges();
 
                 var security = new Security();
@@ -76,7 +78,7 @@ namespace KickAss2.Models
                      OrderId = o.OrderId,
                      TotalPrice = o.TotalPrice,
                      CurrentUser = currentUser
-                     
+
                  })
                  .ToList();
         }
@@ -117,7 +119,7 @@ namespace KickAss2.Models
                     Name = c.ProductName,
                     Description = c.Description,
                     Price = c.Price,
-                    Status = c.Status                   
+                    Status = c.Status
                 })
                 .ToList();
         }
@@ -133,6 +135,43 @@ namespace KickAss2.Models
 
             context.Products.Add(product);
             context.SaveChanges();
+        }
+
+        internal List<Product> GetProductsFromCategory(int categoryID)
+        {
+            //om man trycker på en underkategori
+            if (categoryID > 5)
+            {
+                return context.Products
+                     .Where(o => o.CategoryId == categoryID && o.Status == 1)
+                     .Select(o => new Product
+                     {
+                         ProductId = o.ProductId,
+                         ProductName = o.ProductName,
+                         Description = o.Description,
+                         Price = o.Price,
+                         Stock = o.Stock
+                     })
+                     .ToList();
+            }
+            else
+            {
+                //om man trycker på en huvudkategori plocka ut en lista av alla underkategorier
+                var allProductInParentID = context.Categorys
+                     .Where(o => o.ParentID == categoryID)
+                     .ToList();
+
+                List<Product> productListUnderCategory = new List<Product>();
+
+                foreach (var v in allProductInParentID)
+                {
+
+                    productListUnderCategory.AddRange(context.Products
+                    .Where(o => o.CategoryId == v.CategoryID && o.Status == 1)                    
+                    .ToList());                                      
+                }
+                return productListUnderCategory;
+            }
         }
 
         public bool LogIn(LogInUserVM viewModel)
@@ -161,6 +200,6 @@ namespace KickAss2.Models
 
                  })
                  .Single();
-        }       
+        }
     }
 }

@@ -36,6 +36,18 @@ namespace KickAss2.ViewModels
         [Required(ErrorMessage = "Bekräfta lösenord")]
         [CompareAttribute("Password", ErrorMessage = "Lösenorden stämmer inte överens!")]
         public string VerifiedPassword { get; set; }
+
+        [Display(Name = "Adress")]
+        [Required(ErrorMessage = "Ange adress")]
+        public string Street { get; set; }
+
+        [Display(Name = "Postnummer")]
+        [Required(ErrorMessage = "Ange postnummer")]
+        public string Zip { get; set; }
+
+        [Display(Name = "Ort")]
+        [Required(ErrorMessage = "Ange ort")]
+        public string City { get; set; }
         public CurrentUserVM CurrentUser { get; set; }
 
     }
