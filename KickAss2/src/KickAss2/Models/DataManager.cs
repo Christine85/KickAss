@@ -11,7 +11,7 @@ namespace KickAss2.Models
     public class DataManager
     {
         KickAssDataBaseContext context;
-        static int UserID;
+        static int userID;
 
         public DataManager(KickAssDataBaseContext context)
         {
@@ -35,8 +35,16 @@ namespace KickAss2.Models
                 context.Users.Add(user);
                 context.SaveChanges();
 
-                //sparar ID för den nya användaren
-                UserID = user.UserId;
+                //spara id för kunden
+                userID = user.UserId;
+
+                user.FirstName = viewModel.FirstName;
+                user.LastName = viewModel.LastName;
+                user.Email = viewModel.Email;
+                user.PhoneNumber = viewModel.PhoneNumber;
+                                
+                context.Users.Add(user);
+                context.SaveChanges();
 
                 var security = new Security();
 
@@ -61,7 +69,7 @@ namespace KickAss2.Models
         public List<OrderHistoryVM> OrderHistory(OrderHistoryVM viewModel)
         {
             return context.Orders
-                 .Where(o => o.UserId == UserID)
+                 .Where(o => o.UserId == userID)
                  .Select(o => new OrderHistoryVM
                  {
                      OrderDate = o.OrderDate,
