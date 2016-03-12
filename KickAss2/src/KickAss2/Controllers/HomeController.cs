@@ -25,23 +25,22 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            //string currentUserEmail = HttpContext.Session.GetString("email");
-            //string currentUserName = HttpContext.Session.GetString("name");
-            //string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
             if (currentUser != null)
             {
-               //currentUser = new CurrentUserVM
-               // {
-               //     UserName = currentUserEmail,
-               //     Email = currentUserEmail,
-               //     IsAdmin = currentUserIsAdmin
-               // };
-               
+                currentUser = new CurrentUserVM
+                {
+                    UserName = currentUserEmail,
+                    Email = currentUserEmail,
+                    IsAdmin = currentUserIsAdmin
+                };
+
                 return View(currentUser);
             }
             else
-
                 return View();
         }
         public IActionResult LogIn()
@@ -91,7 +90,7 @@ namespace KickAss2.Controllers
         }
         public IActionResult MyPage()
         {
-            return View();
+            return View(currentUser);
         }
     }
 }

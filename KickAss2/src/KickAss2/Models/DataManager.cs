@@ -66,7 +66,7 @@ namespace KickAss2.Models
             }
         }
 
-        public List<OrderHistoryVM> OrderHistory(OrderHistoryVM viewModel)
+        public List<OrderHistoryVM> OrderHistory(CurrentUserVM currentUser)
         {
             return context.Orders
                  .Where(o => o.UserId == userID)
@@ -74,7 +74,9 @@ namespace KickAss2.Models
                  {
                      OrderDate = o.OrderDate,
                      OrderId = o.OrderId,
-                     TotalPrice = o.TotalPrice
+                     TotalPrice = o.TotalPrice,
+                     CurrentUser = currentUser
+                     
                  })
                  .ToList();
         }
@@ -92,6 +94,20 @@ namespace KickAss2.Models
                 .ToList();
         }
 
+        public List<ListProductVM> ListProducts(CurrentUserVM currentUser)
+        {
+            return context.Products
+                .OrderBy(c => c.CategoryId)
+                .Select(c => new ListProductVM
+                {
+                    Name = c.ProductName,
+                    Description = c.Description,
+                    Price = c.Price,
+                    Status = c.Status,
+                    CurrentUser = currentUser
+                })
+                .ToList();
+        }
         public List<ListProductVM> ListProducts()
         {
             return context.Products
@@ -101,7 +117,7 @@ namespace KickAss2.Models
                     Name = c.ProductName,
                     Description = c.Description,
                     Price = c.Price,
-                    Status = c.Status
+                    Status = c.Status                   
                 })
                 .ToList();
         }
