@@ -64,7 +64,7 @@ namespace KickAss2.Controllers
                     currentUser = dataManager.GetUser(email);
                     HttpContext.Session.SetString("namn", currentUser.UserName);
                     HttpContext.Session.SetString("email", currentUser.Email);
-                    HttpContext.Session.SetString("admin", currentUser.IsAdmin.ToString());
+                    HttpContext.Session.SetString("admin", currentUser.IsAdmin);
 
                     return RedirectToAction(nameof(HomeController.Index));
                 }
