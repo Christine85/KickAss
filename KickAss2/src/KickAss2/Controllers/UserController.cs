@@ -59,7 +59,7 @@ namespace KickAss2.Controlllers
             string currentUserName = HttpContext.Session.GetString("name");
             string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            if (currentUser != null)
+            if (currentUserEmail != null)
             {
                 currentUser = new CurrentUserVM
                 {
