@@ -31,7 +31,7 @@ namespace KickAss2.Controllers
             {
                 currentUser = new CurrentUserVM
                 {
-                    UserName = currentUserEmail,
+                    UserName = currentUserName,
                     Email = currentUserEmail,
                     IsAdmin = currentUserIsAdmin
                 };
