@@ -14,33 +14,45 @@ namespace KickAss2.Controllers
     {
         KickAssDataBaseContext context;
         static CurrentUserVM currentUser;
-
         public IActionResult ShoppingCart()
         {
+            var dataManager = new DataManager(context);
+            ShoppingCartVM shoppingCart = new ShoppingCartVM();
             string currentUserEmail = HttpContext.Session.GetString("email");
             string currentUserName = HttpContext.Session.GetString("name");
             string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
-
             if (currentUserEmail != null)
             {
                 currentUser = new CurrentUserVM
                 {
-                    UserName = currentUserName,
+                    UserName = currentUserEmail,
                     Email = currentUserEmail,
                     IsAdmin = currentUserIsAdmin
                 };
-
-                return View(currentUser);
+                shoppingCart.CurrentUser = currentUser;
+                //return View(currentUser);
             }
             else
+            {
+                shoppingCart.CurrentUser = null;
+            }
 
-                return View();            
+            if (HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart") == null)
+            {
+                return View(shoppingCart);
+            }
+            else
+            {
+                List<ListProductVM> items = HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart");
+                var result = items.GroupBy(i => i.ProducId);
+                shoppingCart.ShoppingList = new List<ShoppingCartItemVM>();
+                foreach (var group in result)
+                {
+                    shoppingCart.ShoppingList.Add(new ShoppingCartItemVM { ProductInCart = group.First(), Quantity = group.Count(), CurrentUser = currentUser });
+                }
+                var model = shoppingCart;
+                return View(model);
+            }
         }
-
-        public IActionResult OrderHistory()
-        {
-            return View(currentUser);
-        }
-
     }
 }

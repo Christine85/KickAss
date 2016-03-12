@@ -1,5 +1,6 @@
 ﻿@using KickAss2.ViewModels
 @model List<OrderHistoryVM>
+<div> @Html.Partial("LogInNavBar")</div>
 
 <link href="~/css/kickass.css" rel="stylesheet" />
 
@@ -20,7 +21,9 @@
 
     <div id="verticalLines" class="col-sm-4">
         <h4 style="text-align: left; font-weight: bold">Orderhistorik</h4>
-        <p style="text-align: left"><a href="/Order/OrderHistory">Visa en lista över dina order</a></p>
+        <form asp-controller="User" asp-action="CheckOrderHistory">
+            <p style="text-align: left"><a href="/Order/OrderHistory">Visa en lista över dina order</a></p>
+        </form>
     </div>
 
     <div class="col-sm-4">

@@ -8,13 +8,8 @@ namespace KickAss2.ViewModels
 {
     public class OrderHistoryVM
     {
-        [Display(Name = "Order ID")]
         public int OrderId { get; set; }
-
-        [Display(Name = "Orderdatum")]
         public DateTime OrderDate { get; set; }
-
-        [Display(Name = "Summa")]
         public float TotalPrice { get; set; }
         public CurrentUserVM CurrentUser { get; set; }
     }

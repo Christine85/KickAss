@@ -5,9 +5,11 @@ using System.Threading.Tasks;
 
 namespace KickAss2.ViewModels
 {
-    public class ShoppingCartVM
+    public class ShoppingCartItemVM
     {
+        public ListProductVM ProductInCart { get; set; }
+        public int Quantity { get; set; }
         public CurrentUserVM CurrentUser { get; set; }
-        public List<ShoppingCartItemVM> ShoppingList { get; set; }
+
     }
 }
