@@ -1,10 +1,11 @@
 ﻿@model CurrentUserVM
-@if (Model != null)
+
+@*@if (Model != null)
 {
     <div>
         Logged In as @Model.UserName
     </div>
-}
+}*@
 
 <script>
     //$(document).ready(function () {
@@ -53,7 +54,7 @@
         <button type="button" class="btn btn-success btn-xs" style="background-color: forestgreen; float: left;"><span class="glyphicon glyphicon-shopping-cart"></span></button>
         </form>
         
-        @Html.Partial("AddAndDeleteButtons")
+        @Html.Partial("AddAndDeleteButtons",Model)
 
     </div>
     <div class="col-sm-4">
