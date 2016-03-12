@@ -3,11 +3,18 @@
 
 
 
-@foreach (var item in Model)
-            {
+@*@foreach (var item in Model)
+    {
+        <tr>
+            <td style="text-align: left">@item.OrderDate.ToString("yyyy-MM-dd hh:mm")</td>
+            <td style="text-align: left">@item.OrderId</td>
+            <td style="text-align: left">@item.TotalPrice</td>
+        </tr>
+    }*@
+
+
     <tr>
-        <td style="background-color: dimgray">@item.OrderDate.ToString("yyyy-MM-dd hh:mm")</td>
-        <td style="background-color: dimgray">@item.OrderId</td>
-        <td style="background-color: dimgray">@item.TotalPrice</td>
+        <td style="text-align: left">den dag du köpte</td>
+        <td style="text-align: left"><a href="~/Shared/OrderDetails/atitem.OrderId">1345698</a></td>
+        <td style="text-align: left">ca 70 mill</td>
     </tr>
-}
