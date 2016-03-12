@@ -15,7 +15,7 @@ namespace KickAss2.Controllers
     public class ProductsController : Controller
     {
         KickAssDataBaseContext context;
-        
+        static CurrentUserVM currentUser;
 
         public ProductsController(KickAssDataBaseContext context)
         {
@@ -23,10 +23,32 @@ namespace KickAss2.Controllers
         }
         public IActionResult Index()
         {
-            var dataManager = new DataManager(context);
-            var model = dataManager.ListProducts();
-            return View(new SessionVM { ProductListVM= model } );
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
+
+            if (currentUser != null)
+            {
+                currentUser = new CurrentUserVM
+                {
+                    UserName = currentUserEmail,
+                    Email = currentUserEmail,
+                    IsAdmin = currentUserIsAdmin
+                };
+
+                var dataManager = new DataManager(context);
+                var model = dataManager.ListProducts(currentUser);
+
+                return View(model);
+            }
+            else
+            {
+                var dataManager = new DataManager(context);
+                var model = dataManager.ListProducts();
+                return View();
+            }
         }
+
         [HttpGet]
         public IActionResult CreateProduct()
         {

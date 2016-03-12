@@ -7,12 +7,14 @@ using KickAss2.ViewModels;
 using Microsoft.AspNet.Mvc.Rendering;
 using KickAss2.Models;
 using KickAss2.Controllers;
+using Microsoft.AspNet.Http;
 
 namespace KickAss2.Controlllers
 {
     public class UserController : Controller
     {
         KickAssDataBaseContext context;
+        static CurrentUserVM currentUser;
 
         public UserController(KickAssDataBaseContext context)
         {
@@ -53,29 +55,46 @@ namespace KickAss2.Controlllers
         }
         public IActionResult CheckOrderHistory(OrderHistoryVM viewModel)
         {
-            if (!ModelState.IsValid)
-                return View(viewModel);
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            try
+            if (currentUser != null)
             {
-                var dataManager = new DataManager(context);
-                var orderHistory = dataManager.OrderHistory(viewModel);
+                currentUser = new CurrentUserVM
+                {
+                    UserName = currentUserEmail,
+                    Email = currentUserEmail,
+                    IsAdmin = currentUserIsAdmin
+                };
 
-                if (orderHistory.Count > 0)
-                {
+
+                if (!ModelState.IsValid)
                     return View(viewModel);
-                }
-                else
+
+                try
                 {
-                    ModelState.AddModelError(string.Empty, "Oj nu hände något!");
+                    var dataManager = new DataManager(context);
+                    var orderHistory = dataManager.OrderHistory(currentUser);
+
+                    if (orderHistory.Count > 0)
+                    {
+                        return View(orderHistory);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError(string.Empty, "Oj nu hände något!");
+                        return View();
+                    }
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError(string.Empty, e.Message);
                     return View();
                 }
             }
-            catch (Exception e)
-            {
-                ModelState.AddModelError(string.Empty, e.Message);
-                return View(viewModel);
-            }
+            else
+                return View();
         }
 
         public IActionResult CheckOrderDetail(int orderID)

@@ -15,6 +15,8 @@ namespace KickAss2.Controllers
     public class HomeController : Controller
     {
         KickAssDataBaseContext context;
+        
+        static CurrentUserVM currentUser;
 
         public HomeController(KickAssDataBaseContext context)
         {
@@ -23,25 +25,22 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            //string currentUserEmail = HttpContext.Session.GetString("email");
-            //string currentUserName = HttpContext.Session.GetString("name");
-            //string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            //if (currentUserEmail != null)
-            //{
-                               
-            //    var currentUser = new CurrentUserVM
-            //    {
-            //        UserName = currentUserEmail,
-            //        Email = currentUserEmail,
-            //        IsAdmin = currentUserIsAdmin
-            //    };
+            if (currentUser != null)
+            {
+                currentUser = new CurrentUserVM
+                {
+                    UserName = currentUserEmail,
+                    Email = currentUserEmail,
+                    IsAdmin = currentUserIsAdmin
+                };
 
-            //    var tuple = new Tuple<LogInUserVM, CurrentUserVM>(new LogInUserVM(), currentUser);
-            //    return View(tuple);
-            //}
-            //else
-                
+                return View(currentUser);
+            }
+            else
                 return View();
         }
         public IActionResult LogIn()
@@ -62,10 +61,10 @@ namespace KickAss2.Controllers
                 if (check == true)
                 {
                     var email = viewModel.Email;
-                    var currentUser = dataManager.GetUser(email);
-                    //HttpContext.Session.SetString("namn", currentUser.UserName);
-                    //HttpContext.Session.SetString("email", currentUser.Email);
-                    //HttpContext.Session.SetString("admin", currentUser.IsAdmin.ToString());
+                    currentUser = dataManager.GetUser(email);
+                    HttpContext.Session.SetString("namn", currentUser.UserName);
+                    HttpContext.Session.SetString("email", currentUser.Email);
+                    HttpContext.Session.SetString("admin", currentUser.IsAdmin.ToString());
 
                     return RedirectToAction(nameof(HomeController.Index));
                 }
@@ -85,12 +84,13 @@ namespace KickAss2.Controllers
         {
             HttpContext.Session.Clear();
 
+            currentUser = null;
+
             return RedirectToAction(nameof(HomeController.Index));
         }
-
         public IActionResult MyPage()
         {
-            return View();
+            return View(currentUser);
         }
     }
 }
