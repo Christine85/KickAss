@@ -28,7 +28,7 @@
                     <span asp-validation-for="LastName"></span>
                 </div>
             </div>
-            <div class="row" style="color:transparent"> .</div>
+<hr />
             <div class="row">
                 <div class="col-sm-2">
                     <label asp-for="Email"></label>
@@ -45,7 +45,7 @@
                     <span asp-validation-for="VerifiedEmail"></span>
                 </div>
             </div>
-            <div class="row" style="color:transparent"> .</div>
+            <hr />
             <div class="row">
                 <div class="col-sm-2">
                     <label asp-for="PhoneNumber"></label>
@@ -55,7 +55,38 @@
                     <span asp-validation-for="PhoneNumber"></span>
                 </div>
             </div>
-            <div class="row" style="color:transparent"> .</div>
+            <hr />
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="Street"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="Street" class="form-control" placeholder="Gatuadress">
+                    <span asp-validation-for="Street"></span>
+                </div>
+
+                <div class="col-sm-2">
+                    <label asp-for="City"></label>
+                </div>
+                <div class="col-sm-4">
+                    <input asp-for="City" class="form-control" placeholder="Stad">
+                    <span asp-validation-for="City"></span>
+                </div>
+
+                </div>
+            <div class="row">
+                <div class="col-sm-2">
+                    <label asp-for="Zip"></label>
+                </div>
+                <div class="col-sm-2">
+                    <input asp-for="Zip" class="form-control" placeholder="Postnr.">
+                    <span asp-validation-for="Zip"></span>
+                </div>
+
+            </div>
+
+            <hr />
             <div class="row">
                 <div class="col-sm-2">
                     <label asp-for="Password"></label>
@@ -72,7 +103,7 @@
                     <span asp-validation-for="VerifiedPassword"></span>
                 </div>
             </div>
-            <div class="row" style="color:transparent"> .</div>
+            <hr />
             <div class="row">
                 <div class="col-sm-2">
                     <input type="submit" value="Registrera" class="btn btn-success" style="background-color: forestgreen" />
