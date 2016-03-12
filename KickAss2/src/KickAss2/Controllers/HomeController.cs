@@ -15,7 +15,6 @@ namespace KickAss2.Controllers
     public class HomeController : Controller
     {
         KickAssDataBaseContext context;
-   
 
         public HomeController(KickAssDataBaseContext context)
         {
@@ -87,6 +86,11 @@ namespace KickAss2.Controllers
             HttpContext.Session.Clear();
 
             return RedirectToAction(nameof(HomeController.Index));
+        }
+
+        public IActionResult MyPage()
+        {
+            return View();
         }
     }
 }
