@@ -27,7 +27,7 @@ namespace KickAss2.Controllers
             string currentUserName = HttpContext.Session.GetString("name");
             string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            if (currentUser != null)
+            if (currentUserEmail != null)
             {
                 currentUser = new CurrentUserVM
                 {
@@ -45,7 +45,7 @@ namespace KickAss2.Controllers
             {
                 var dataManager = new DataManager(context);
                 var model = dataManager.ListProducts();
-                return View();
+                return View(model);
             }
         }
 
@@ -101,5 +101,7 @@ namespace KickAss2.Controllers
             
             return RedirectToAction(nameof(ProductsController.Index));
         }
+
+        
     }
 }
