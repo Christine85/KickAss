@@ -1,7 +1,7 @@
 ﻿@model CurrentUserVM
 
-@if (Model != null) @*&& Model.Item2 != null)*@
+@if (Model != null)
 {
-    <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.Item2.UserName"</p>
-    <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.Item2.UserName"</p>
+    <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.UserName"</p>
+    <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.UserName"</p>
 }
