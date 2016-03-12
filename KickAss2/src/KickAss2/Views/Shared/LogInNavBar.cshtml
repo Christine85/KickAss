@@ -1,13 +1,14 @@
 ﻿@model CurrentUserVM
 
-    @if (Model != null)
-    {
-    <li><a href="/home/MyPage"><span class="glyphicon glyphicon-user"></span> Mina Sidor</a></li>
-    <form asp-controller="Home" asp-action="LogOut"><li><a href="/home/logout"><span class="glyphicon glyphicon-log-in"></span> Logga ut</a></li></form>
-    }
-    else
-    {
+@if (Model != null)
+{
+    <li><a href="/home/MyPage"><span class="glyphicon glyphicon-user"></span> Mina sidor</a></li>
+    <li><a style="text-decoration: none" href="/home/logout"><form asp-controller="Home" asp-action="LogOut"><span class="glyphicon glyphicon-log-out"></span> Logga ut</form></a></li>
+}
+else
+{
     <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
     <li><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
-    }
+}
+
 
