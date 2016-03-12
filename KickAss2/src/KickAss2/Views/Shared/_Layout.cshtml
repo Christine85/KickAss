@@ -7,21 +7,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <title>@ViewBag.Title</title>
-	<!-- style for links -->
-	<style>
-		a
-		{
-			color: grey;
+    <!-- style for links -->
+    <style>
+        a {
+            color: grey;
+        }
 
-		}
-		a:hover
-		{
-			color: white 
-		}
-	</style>
-	<!-- style end -->
+            a:hover {
+                color: white;
+            }
+    </style>
+    <!-- style end -->
 </head>
 <body>
+
+    @model Tuple<LogInUserVM, CurrentUserVM>
+
+    @*@model SessionVM*@
+
 
     <div class="container">
         <div class="container-fluid">
@@ -31,8 +34,16 @@
                 </div>
                 <div class="col-sm-9" style="text-align: center;">
                     <p class="hidden-xs" style="color: transparent;">.</p>
-                    <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
-                    <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                    @if (Model != null && Model.Item2 != null)
+                    {
+                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Välkommen @Model.Item2.UserName"</p>
+                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Välkommen @Model.Item2.UserName"</p>
+                    }
+                    else
+                    {
+                        <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                        <p class="hidden-sm hidden-lg hidden-md hidden-sm" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 16px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
+                    }
                 </div>
             </div>
             <div id="row2" class="row">
@@ -40,7 +51,7 @@
                 <div class="container-fluid">
                     @*<div class="col-sm-2">
                         <img class="hidden-xs" src="~/images/kickasskontorsprylarlogo.png" />
-                    </div>*@
+                        </div>*@
                     <div class="col-sm-12">
                         <nav class="navbar navbar-inverse">
                             <div class="navbar-header">
@@ -49,41 +60,69 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="/home/index">Kick Ass Kontorsprylar AB</a>
+                                <a class="navbar-brand" href="/home/index">Kick Ass Kontorsprylar</a>
                             </div>
                             <div class="collapse navbar-collapse" id="myNavbar">
-								<ul class="nav navbar-nav">
-									<li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<!--  #region categories -->
-											<li><b><a href="#category@category.CategoryID">Huvudkategori 1</a></b></li>
-											<li><a href="#category@subcategory.CategoryID">Underkategori 1.1</a></li>
-											<li><a href="#category@subcategory.CategoryID">Underkategori 1.1</a></li>
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="/home/index"><span class="glyphicon glyphicon-home"></span>  Home</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Produktkatalog<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <!--  #region categories -->
+                                            <li><b><a href="#category@category.CategoryID">Huvudkategori 1</a></b></li>
+                                            <li><a href="#category@subcategory.CategoryID">Underkategori 1.1</a></li>
+                                            <li><a href="#category@subcategory.CategoryID">Underkategori 1.1</a></li>
 
 
-											<li><b><a href="#category@category.CategoryID">Huvudkategori 2</a></b></li>
-											<li><a href="#category@subcategory.CategoryID">Underkategori 2.1</a></li>
+                                            <li><b><a href="#category@category.CategoryID">Huvudkategori 2</a></b></li>
+                                            <li><a href="#category@subcategory.CategoryID">Underkategori 2.1</a></li>
 
-										</ul>
-										@*hej*@
-									</li>
-									<!--  #endregion categories -->
-									<li class="dropdown">
-										<a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
-										<ul class="dropdown-menu">
-											<li><a href="/KickAssInformation/ContactUs">Kontakta oss</a></li>
-											<li><a href="/KickAssInformation/About">Företagsinformation</a></li>
-											<li><a href="/KickAssInformation/Questions">Vanliga frågor</a></li>
-										</ul>
-									</li>
-									<li><a href="/Order/Checkout"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
-									<li><a href="#"><input type="text" name="FirstName" placeholder="Ange sökordet"> <span class="glyphicon glyphicon-search"></span> Sök</a></li>
-								</ul>
+                                        </ul>
+
+                                    </li>
+                                    <!--  #endregion categories -->
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Om oss<span class="caret"></span></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/KickAssInformation/ContactUs">Kontakta oss</a></li>
+                                            <li><a href="/KickAssInformation/About">Företagsinformation</a></li>
+                                            <li><a href="/KickAssInformation/Questions">Vanliga frågor</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/order/ShoppingCart"><span class="glyphicon glyphicon-shopping-cart"></span> Din varukorg</a></li>
+                                    <li><a href="#"><input type="text" name="FirstName" placeholder="Ange sökordet"> <span class="glyphicon glyphicon-search"></span> Sök</a></li>
+                                </ul>
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
-                                    <li><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
+                                    @Html.Partial("LogInNavBar")
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <!-- #endregion -->
+            </div>
+@if (Model != null && Model.Item2 != null)
+{
+            <!-- #region Admin Navbar -->
+            <div id="rowAdmin" class="row">
+                <div class="container-fluid">
+                    <div class="col-sm-12">
+                        <nav class="navbar navbar-inverse" style="background-color: forestgreen; border-color: forestgreen; color: yellow">
+                            <div class="navbar-header" style="background-color: forestgreen; border-color: forestgreen; color: yellow">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/home/index">Admin Panelen</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Lägg till produkt</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Hantera ordrar</a></li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Hantera kunder</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -91,6 +130,8 @@
                 </div>
             </div>
             <!-- #endregion -->
+}
+
         </div>
         <div id="row3" class="row">
             @RenderBody()
@@ -108,7 +149,7 @@
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-earphone"></span> Kontakta oss</h4>
                 <p>+46 708 460 256</p>
-				<p><a href="mailto:info@kickasskontorsprylar.nu" target="_blank">info@kickasskontorsprylar.nu</a></p>
+                <p><a href="mailto:info@kickasskontorsprylar.nu" target="_blank">info@kickasskontorsprylar.nu</a></p>
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-thumbs-up"></span> Följ oss</h4>
@@ -117,15 +158,15 @@
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-question-sign"></span> Hjälp</h4>
-				<p><a href="/KickAssInformation/Questions">Vanliga frågor</a></p>
+                <p><a href="/KickAssInformation/Questions">Vanliga frågor</a></p>
                 <p>Säkerhetspolicy</p>
             </div>
             <div class="col-sm-3" style="background-color:#222222; color:#9D9D9D; padding:5px; text-align: center">
                 <h4><span class="glyphicon glyphicon-user"></span> Mitt Konto</h4>
-				<p><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></p>
-				<p><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></p>
+                <p><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></p>
+                <p><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></p>
 
-</div>
+            </div>
             <!-- #endregion -->
         </div>
     </div>

@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Mvc;
+
 
 namespace KickAss2.Models
 {
@@ -46,6 +48,7 @@ namespace KickAss2.Models
 
                 //true om kund lagts till i DB
                 return true;
+
             }
 
             else
@@ -87,9 +90,10 @@ namespace KickAss2.Models
                 .OrderBy(c => c.CategoryId)
                 .Select(c => new ListProductVM
                 {
-                    Name = c.Name,
+                    Name = c.ProductName,
                     Description = c.Description,
-                    Price = c.Price
+                    Price = c.Price,
+                    Status = c.Status
                 })
                 .ToList();
         }
@@ -97,8 +101,7 @@ namespace KickAss2.Models
         {
             var product = new Product();
 
-            product.ProductId = 1;
-            product.Name = viewModel.Name;
+            product.ProductName = viewModel.Name;
             product.Description = viewModel.Description;
             product.Price = viewModel.Price;
             product.Stock = viewModel.Stock;
@@ -114,6 +117,7 @@ namespace KickAss2.Models
 
             if (check)
             {
+
                 return true;
             }
             else
@@ -121,5 +125,18 @@ namespace KickAss2.Models
                 return false;
             }
         }
+        public CurrentUserVM GetUser(string email)
+        {
+            return context.Users
+                 .Where(o => o.Email == email)
+                 .Select(o => new CurrentUserVM
+                 {
+                     UserName = o.FirstName,
+                     Email = o.Email,
+                     IsAdmin = o.IsAdmin
+
+                 })
+                 .Single();
+        }       
     }
 }

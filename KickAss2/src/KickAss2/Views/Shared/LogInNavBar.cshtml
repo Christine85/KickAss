@@ -1,0 +1,13 @@
+﻿@model SessionVM
+
+    @if (Model != null)
+    {
+    <li><a href="/home/MyPages"><span class="glyphicon glyphicon-user"></span> Mina Sidor</a></li>
+    <form asp-controller="Home" asp-action="LogOut"><li><a href="/home/logout"><span class="glyphicon glyphicon-log-in"></span> Logga ut</a></li></form>
+    }
+    else
+    {
+    <li><a href="/user/createuser"><span class="glyphicon glyphicon-user"></span> Registrera</a></li>
+    <li><a href="/home/login"><span class="glyphicon glyphicon-log-in"></span> Logga in</a></li>
+    }
+

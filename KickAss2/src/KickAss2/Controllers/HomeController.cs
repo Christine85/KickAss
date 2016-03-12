@@ -24,9 +24,26 @@ namespace KickAss2.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            ViewBag.Message = HttpContext.Session.GetString("email");
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            return View();
+            if (currentUserEmail != null)
+            {
+                               
+                var currentUser = new CurrentUserVM
+                {
+                    UserName = currentUserEmail,
+                    Email = currentUserEmail,
+                    IsAdmin = currentUserIsAdmin
+                };
+
+                var tuple = new Tuple<LogInUserVM, CurrentUserVM>(new LogInUserVM(), currentUser);
+                return View(tuple);
+            }
+            else
+                
+                return View();
         }
         public IActionResult LogIn()
         {
@@ -45,14 +62,18 @@ namespace KickAss2.Controllers
 
                 if (check == true)
                 {
-                    HttpContext.Session.SetString("email", viewModel.Email);
-                    
+                    var email = viewModel.Email;
+                    var currentUser = dataManager.GetUser(email);
+                    HttpContext.Session.SetString("namn", currentUser.UserName);
+                    HttpContext.Session.SetString("email", currentUser.Email);
+                    HttpContext.Session.SetString("admin", currentUser.IsAdmin.ToString());
+
                     return RedirectToAction(nameof(HomeController.Index));
                 }
                 else
                 {
                     ModelState.AddModelError(string.Empty, "Fel vid inloggning, checka email eller lösenordet");
-                    return View(viewModel);
+                    return View();
                 }
             }
             catch (Exception e)
@@ -60,6 +81,12 @@ namespace KickAss2.Controllers
                 ModelState.AddModelError(string.Empty, e.Message);
                 return View(viewModel);
             }
+        }
+        public IActionResult LogOut()
+        {
+            HttpContext.Session.Clear();
+
+            return RedirectToAction(nameof(HomeController.Index));
         }
     }
 }
