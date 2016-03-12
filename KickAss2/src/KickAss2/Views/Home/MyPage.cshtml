@@ -20,22 +20,7 @@
 
     <div id="verticalLines" class="col-sm-4">
         <h4 style="text-align: left; font-weight: bold">Orderhistorik</h4>
-        <table style="width: 100%">
-            <tr>
-                <th style="text-align: left">Orderdatum</th>
-                <th style="text-align: left">Order ID</th>
-                <th style="text-align: left">Summa</th>
-            </tr>
-            @Html.Partial("OrderHistory", Model)
-        </table>
-        @*
-            <ul id="leftAlignLi" type="square" style="text-align: left">
-                <li style="text-align: left">Order 1</li>
-                <li style="text-align: left">Order 2</li>
-                <li style="text-align: left">Order 3</li>
-                <li style="text-align: left">Order 4</li>
-            </ul>
-        *@
+        <p style="text-align: left"><a href="/Order/OrderHistory">Visa en lista över dina order</a></p>
     </div>
 
     <div class="col-sm-4">

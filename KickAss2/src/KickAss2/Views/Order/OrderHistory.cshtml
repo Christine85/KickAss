@@ -1,0 +1,57 @@
+﻿@using KickAss2.ViewModels
+@model List<OrderHistoryVM>
+
+<link href="~/css/kickass.css" rel="stylesheet" />
+
+<div id="row1" class="row" style="padding: 5px" ; text-align center>
+    <div class="col-sm-12">
+        <h1 style="text-align: center; font-weight: bold">Min orderhistorik</h1>
+        <hr />
+    </div>
+</div>
+<div id="row2" class="row" style="padding: 5px; text-align: center">
+    <div class="col-sm-4">
+        <table style="width: 100%">
+            <tr>
+                <th style="text-align: left">Orderdatum</th>
+                <th style="text-align: left">Order ID</th>
+                <th style="text-align: left">Summa</th>
+            </tr>
+
+            @*
+                Här ska loopen fixas för att lista upp all orderhistorik för användaren..... två hårdkodade exempel nu...
+
+                    @foreach (var item in Model)
+                {
+                    <tr>
+                        <td style="text-align: left">@item.OrderDate.ToString("yyyy-MM-dd hh:mm")</td>
+                        <td style="text-align: left">@item.OrderId</td>
+                        <td style="text-align: left">@item.TotalPrice</td>
+                    </tr>
+                }
+            *@
+
+            <tr>
+                <td style="text-align: left">2015-11-10 15:13</td>
+                <td style="text-align: left"><a href="~/Shared/OrderDetails/atitem.OrderId">1345698</a></td>
+                <td style="text-align: left">ca 70 mill</td>
+            </tr>
+            <tr>
+                <td style="text-align: left">29 maj 2015</td>
+                <td style="text-align: left"><a href="~/Shared/OrderDetails/atitem.OrderId">1871121</a></td>
+                <td style="text-align: left">250KSEK</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-sm-4">
+        <h4 style="text-align: left; font-weight: bold"></h4>
+        <p style="text-align: left"><a href="/Order/OrderHistory"></a></p>
+    </div>
+
+    <div class="col-sm-4">
+        <h4 style="text-align: left; font-weight: bold"></h4>
+        <p style="text-align: left"><a href="#categoriIdPennor"></a></p>
+    </div>
+</div>
+

@@ -36,5 +36,11 @@ namespace KickAss2.Controllers
 
                 return View();            
         }
+
+        public IActionResult OrderHistory()
+        {
+            return View(currentUser);
+        }
+
     }
 }
