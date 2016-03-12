@@ -21,9 +21,7 @@
 </head>
 <body>
 
-    @model Tuple<LogInUserVM, CurrentUserVM>
-
-    @*@model SessionVM*@
+   
 
 
     <div class="container">
@@ -35,7 +33,7 @@
                 <div class="col-sm-9" style="text-align: center;">
                     <p class="hidden-xs" style="color: transparent;">.</p>
 
-                    @Html.Partial("MyPageAndLogOut", Model)
+                    @Html.Partial("MyPageAndLogOut")
                     else
                     {
                         <p class="hidden-xs" id="1345" style="font-family: Candara; font-style: oblique; color: forestgreen; font-size: 30px; text-align: center;"> "Enda kontorsbutiken med batonger"</p>
@@ -98,7 +96,7 @@
                 <!-- #endregion -->
             </div>
 
-            @Html.Partial("AdminNavBar", Model)
+            @Html.Partial("AdminNavBar")
 
         </div>
         <div id="row3" class="row">
