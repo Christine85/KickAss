@@ -1,4 +1,7 @@
-﻿<link href="~/css/kickass.css" rel="stylesheet" />
+﻿@using KickAss2.ViewModels
+@model List<OrderHistoryVM>
+
+<link href="~/css/kickass.css" rel="stylesheet" />
 
 <div id="row1" class="row" style="padding: 5px" ; text-align center>
     <div class="col-sm-12">
@@ -17,12 +20,22 @@
 
     <div id="verticalLines" class="col-sm-4">
         <h4 style="text-align: left; font-weight: bold">Orderhistorik</h4>
-        <ul id="leftAlignLi" type="square" style="text-align: left">
-            <li style="text-align: left">Order 1</li>
-            <li style="text-align: left">Order 2</li>
-            <li style="text-align: left">Order 3</li>
-            <li style="text-align: left">Order 4</li>
-        </ul>
+        <table>
+            <tr>
+                <th style="text-align: left">Orderdatum</th>
+                <th style="text-align: left">Order ID</th>
+                <th style="text-align: left">Summa</th>
+            </tr>
+            @Html.Partial("OrderHistory", Model)
+        </table>
+        @*
+            <ul id="leftAlignLi" type="square" style="text-align: left">
+                <li style="text-align: left">Order 1</li>
+                <li style="text-align: left">Order 2</li>
+                <li style="text-align: left">Order 3</li>
+                <li style="text-align: left">Order 4</li>
+            </ul>
+        *@
     </div>
 
     <div class="col-sm-4">

@@ -15,6 +15,7 @@ namespace KickAss2.ViewModels
         public string Description { get; set; }
 
         public int Status { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
 
         // Now you can store your complex objects like so:
         //var myComplexObject = new MyClass();

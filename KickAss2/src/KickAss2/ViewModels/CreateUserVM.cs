@@ -36,6 +36,7 @@ namespace KickAss2.ViewModels
         [Required(ErrorMessage = "Bekräfta lösenord")]
         [CompareAttribute("Password", ErrorMessage = "Lösenorden stämmer inte överens!")]
         public string VerifiedPassword { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
 
     }
 }

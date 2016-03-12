@@ -13,5 +13,6 @@ namespace KickAss2.ViewModels
         public string Email { get; set; }
         [Required(ErrorMessage ="ange lösenord")]
         public string Password { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
     }
 }
