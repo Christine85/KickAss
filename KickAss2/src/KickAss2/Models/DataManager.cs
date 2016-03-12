@@ -137,6 +137,21 @@ namespace KickAss2.Models
             context.SaveChanges();
         }
 
+        internal List<Product> GetProductsFromCategory(int categoryID)
+        {
+            return context.Products
+                 .Where(o => o.CategoryId == categoryID && o.Status == 1)
+                 .Select(o => new Product
+                 {
+                     ProductId = o.ProductId,
+                     ProductName = o.ProductName,
+                     Description = o.Description,
+                     Price = o.Price,
+                     Stock = o.Stock
+                 })
+                 .ToList();
+        }
+
         public bool LogIn(LogInUserVM viewModel)
         {
             var check = context.Securitys.Any(o => o.Email.Equals(viewModel.Email) && o.Password.Equals(viewModel.Password));

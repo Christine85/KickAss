@@ -90,7 +90,7 @@ namespace KickAss2.Controllers
         }
         public IActionResult MyPage()
         {
-            return View(currentUser);
+            return View();
         }
     }
 }
