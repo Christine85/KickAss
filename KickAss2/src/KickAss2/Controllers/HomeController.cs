@@ -90,7 +90,23 @@ namespace KickAss2.Controllers
         }
         public IActionResult MyPage()
         {
-            return View();
+            string currentUserEmail = HttpContext.Session.GetString("email");
+            string currentUserName = HttpContext.Session.GetString("name");
+            string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
+
+            if (currentUserEmail != null)
+            {
+                currentUser = new CurrentUserVM
+                {
+                    UserName = currentUserName,
+                    Email = currentUserEmail,
+                    IsAdmin = currentUserIsAdmin
+                };
+
+                return View(currentUser);
+            }
+            else
+                return View();
         }
     }
 }
