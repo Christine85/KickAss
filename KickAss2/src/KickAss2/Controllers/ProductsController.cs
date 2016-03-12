@@ -98,8 +98,24 @@ namespace KickAss2.Controllers
             shoppingCart = HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart");
             shoppingCart.Add(viewModel);
             HttpContext.Session.SetObjectAsJson("shoppingCart", shoppingCart);
-            
+
             return RedirectToAction(nameof(ProductsController.Index));
+        }
+        public IActionResult ListProducts(int categoryID)
+        {
+            try
+            {
+                var dataManager = new DataManager(context);
+                var getProductsFromCategory = dataManager.GetProductsFromCategory(categoryID);
+
+                return View(getProductsFromCategory);
+               
+            }
+            catch (Exception e)
+            {
+                ModelState.AddModelError(string.Empty, e.Message);
+                return View(nameof(HomeController.Index));
+            }
         }
     }
 }
