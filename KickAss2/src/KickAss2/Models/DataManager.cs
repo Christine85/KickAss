@@ -38,12 +38,14 @@ namespace KickAss2.Models
                 //spara id för kunden
                 userID = user.UserId;
 
-                user.FirstName = viewModel.FirstName;
-                user.LastName = viewModel.LastName;
-                user.Email = viewModel.Email;
-                user.PhoneNumber = viewModel.PhoneNumber;
+                var adress = new Address();
+
+                adress.Street = viewModel.Street;
+                adress.Zip = viewModel.Zip;
+                adress.City = viewModel.City;
+                adress.UserID = userID;                
                                 
-                context.Users.Add(user);
+                context.Addresses.Add(adress);
                 context.SaveChanges();
 
                 var security = new Security();
