@@ -1,0 +1,61 @@
+﻿<link href="~/css/kickass.css" rel="stylesheet" />
+
+<style>
+	#tabs {
+		padding: 15px;
+		background-color: #222222;
+		color: #9D9D9D;
+		text-align: center;
+	}
+
+	#active-tab {
+		padding: 15px;
+		background-color: forestgreen;
+		color: black;
+		text-align: center;
+	}
+
+	#top-bar {
+		min-height: 30px;
+		background-color: forestgreen;
+		border-radius: 15px 15px 0px 0px;
+	}
+
+	#bot-bar {
+		min-height: 15px;
+		background-color: forestgreen;
+		border-radius: 0px 0px 15px 15px;
+	}
+
+	a:hover {
+		color: black;
+	}
+
+	#displayArea {
+		border: solid;
+		border-width: 4px;
+		border-color: forestgreen;
+		padding: 10px;
+	}
+</style>
+
+<div class="container">
+	<ul class="nav nav-tabs col-lg-12">
+		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="tabs" onclick="navigateTabs()"><b>1. Varukorg</b></a></li>
+		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="active-tab" onclick="navigateTabs()"><b>2. Leveransadress</b></a></li>
+		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="tabs" onclick="navigateTabs()"><b>3. Betalning</b></a></li>
+		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="tabs" onclick="navigateTabs()"><b>4. Bekräftelse</b></a></li>
+	</ul>
+	<div class="col-sm-12" id="top-bar"></div>
+	<div class="col-sm-12" id="displayArea">
+
+		<!-- #region display area-->
+
+
+
+		<!-- #endregion -->
+
+	</div>
+	<div class="col-sm-12" id="bot-bar"></div>
+	<a href="#" class="col-sm-2 col-sm-offset-1" id="active-tab" sonlick="forwardTabs()"><b>Gå vidare.</b></a><div class="col-sm-10"></div>
+</div>
