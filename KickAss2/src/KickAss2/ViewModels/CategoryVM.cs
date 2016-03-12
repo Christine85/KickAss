@@ -10,5 +10,6 @@ namespace KickAss2.ViewModels
         public string Name { get; set; }
         public int CategoryID { get; set; }
         public int ParentID { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
     }
 }

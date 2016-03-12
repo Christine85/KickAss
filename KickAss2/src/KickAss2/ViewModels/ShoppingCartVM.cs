@@ -7,6 +7,7 @@ namespace KickAss2.ViewModels
 {
     public class ShoppingCartVM
     {
-
+        public List<ListProductVM> ProductsInCart { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
     }
 }

@@ -16,5 +16,6 @@ namespace KickAss2.ViewModels
 
         [Display(Name = "Summa")]
         public float TotalPrice { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
     }
 }
