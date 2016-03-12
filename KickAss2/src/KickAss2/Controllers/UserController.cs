@@ -82,9 +82,8 @@ namespace KickAss2.Controlllers
                         return View(orderHistory);
                     }
                     else
-                    {
-                        ModelState.AddModelError(string.Empty, "Oj nu hände något!");
-                        return View();
+                    {                        
+                        return View(currentUser);
                     }
                 }
                 catch (Exception e)

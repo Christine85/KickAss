@@ -1,6 +1,6 @@
 ﻿@using KickAss2.ViewModels
 @model List<OrderHistoryVM>
-
+<div> @Html.Partial("LogInNavBar",Model.First().CurrentUser)</div>
 <link href="~/css/kickass.css" rel="stylesheet" />
 
 <div id="row1" class="row" style="padding: 5px" ; text-align center>

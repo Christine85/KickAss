@@ -1,89 +1,59 @@
-﻿<link href="~/css/kickass.css" rel="stylesheet" />
+﻿@model ShoppingCartVM
+<div> @Html.Partial("LogInNavBar",Model.CurrentUser)</div>
+@if (Model.ShoppingList != null)
+{
+    <link href="~/css/kickass.css" rel="stylesheet" />
+
+    <div id="row1" class="row" style="padding: 5px" ; text-align center>
+        <div class="col-sm-12">
+            <h1 style="text-align: center; font-weight: bold"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorgen</h1>
+            <br />
+            <p>Nedan visas alla produkter i din varukorg</p>
+            <hr />
+        </div>
+    </div>
 
 
-<style>
-	#tabs {
-		padding: 15px;
-		background-color: #222222;
-		color: #9D9D9D;
-		text-align: center;
-	}
-		#active-tab {
-		padding: 15px;
-		background-color: forestgreen;
-		color: black;
-		text-align: center;
-	}
+    @foreach (var item in Model.ShoppingList)
+    {
+        <div id="row2" class="row" style="padding: 5px; text-align: center">
+            <h4 style="text-align: left; font-weight: bold">@item.ProductInCart.Name</h4>
 
-	#top-bar {
-		min-height: 30px;
-		background-color: forestgreen;
-		border-radius: 15px 15px 0px 0px;
-	}
+            <p style="text-align: left"><b>@item.ProductInCart.Price</b></p>
+            <p style="text-align: left"><b>@item.Quantity</b></p>
 
-	#bot-bar {
-		min-height: 15px;
-		background-color: forestgreen;
-		border-radius: 0px 0px 15px 15px;
-	}
 
-	a:hover {
-		color: black;
-	}
+        </div>
+    }
 
-	#displayArea {
-		border:solid;
-		border-width: 4px;
-		border-color: forestgreen;
-		padding: 10px;
-	}
-</style>
 
-<div class="container">
-	<ul class="nav nav-tabs col-lg-12">
-		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="active-tab" onclick="navigateTabs()"><b>1. Varukorg</b></a></li>
-		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="tabs" onclick="navigateTabs()"><b>2. Leveransadress</b></a></li>
-		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="tabs" onclick="navigateTabs()"><b>3. Betalning</b></a></li>
-		<li class="col-xs-12 col-sm-12 col-md-3"><a href="#" id="tabs" onclick="navigateTabs()"><b>4. Bekräftelse</b></a></li>
-	</ul>
-	<div class="col-sm-12" id="top-bar"></div>
-	<div class="col-sm-12" id="displayArea">
 
-		<!-- #region display area-->
+    <hr />
 
-		<div id="row1" class="row" style="padding: 5px" ; text-align center>
-			<div class="col-sm-12">
-				<h1 style="text-align: center; font-weight: bold"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorgen</h1>
-				<br />
-				<p>Nedan visas alla produkter i din varukorg</p>
-				<hr />
-			</div>
-		</div>
-		<div id="row2" class="row" style="padding: 5px; text-align: center">
-			<div class="col-sm-4">
-				<h4 style="text-align: left; font-weight: bold">Kuvert, 29 kr/st</h4>
-				<p style="text-align: left"><a href="#paymentDetails">50 stycken C5 kuvert</a></p>
-				<p style="text-align: left"><b>Antal: </b> 3 st</p>
-				<p style="text-align: left"><b>Kostnad: </b> 87 st</p>
-			</div>
-			<div class="col-sm-4" id="verticalLines">
-				<h4 style="text-align: left; font-weight: bold">Almanacka, 39 kr/st</h4>
-				<p style="text-align: left"><a href="#paymentDetails">En stilig almanack i A5 format</a></p>
-				<p style="text-align: left"><b>Antal: </b> 1 st</p>
-				<p style="text-align: left"><b>Kostnad: </b> 39 st</p>
-			</div>
-			<div class="col-sm-4">
-				<h4 style="text-align: left; font-weight: bold">Pennor, 199 kr/st</h4>
-				<p style="text-align: left"><a href="#paymentDetails">Två stycken must have Kickass pennor</a></p>
-				<p style="text-align: left"><b>Antal: </b> 1 st</p>
-				<p style="text-align: left"><b>Kostnad: </b> 199 st</p>
-			</div>
-		</div>
-		<hr />
+    <div id="row1" class="row" style="padding: 5px" ; text-align center>
+        <div class="col-sm-12">
+            <h1 style="text-align: center; font-weight: bold"><span class="glyphicon glyphicon-shopping-cart"></span> Totalt: 500 kr</h1>
+            <br />
+            <hr />
+        </div>
+    </div>
 
-		<!-- #endregion -->
 
-	</div>
-	<div class="col-sm-12" id="bot-bar"></div>
-	<a href="#" class="col-sm-2 col-sm-offset-1" id="active-tab" sonlick="forwardTabs()"><b>Gå vidare.</b></a><div class="col-sm-10"></div>
-</div>
+}
+else
+{
+    <div id="row1" class="row" style="padding: 5px" ; text-align center>
+        <div class="col-sm-12">
+            <h1 style="text-align: center; font-weight: bold"><span class="glyphicon glyphicon-shopping-cart"></span> Varukorgen</h1>
+            <br />
+            <p>Nedan visas alla produkter i din varukorg</p>
+            <hr />
+        </div>
+    </div>
+    <div>Din VaruKorg är Tom!</div>
+
+}
+
+
+
+
