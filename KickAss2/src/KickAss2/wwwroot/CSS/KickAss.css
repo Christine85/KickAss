@@ -27,6 +27,15 @@ h1{
     font-size: 42px;
 }
 
+.greenHeadding{
+        text-align: left;
+    font-family: Calibri;
+    text-align: left; 
+    font-weight: bold; 
+    font-size: 24px; 
+    color: forestgreen
+}
+
 .smallBoldHeadding{
     font-family: Calibri;
     text-align: left;
