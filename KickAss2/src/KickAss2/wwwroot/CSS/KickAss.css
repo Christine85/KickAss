@@ -5,7 +5,7 @@
     border-right-color: #d7d7d7;
 }
 
-.row {
+.row{
     padding: 5px;
 }
 
@@ -21,34 +21,42 @@ a:hover {
     color: forestgreen;
 }
 
-h1 {
+h1{
     text-align: left;
     font-family: Calibri;
     font-size: 42px;
 }
 
-.greenHeadding {
+.fatLabel{
+        font-family: Calibri;
     text-align: left;
-    font-family: Calibri;
-    text-align: left;
+    font-size: 16px;
+    text-align: right; 
     font-weight: bold;
-    font-size: 24px;
-    color: forestgreen;
 }
 
-.smallBoldHeadding {
+.greenHeadding{
+        text-align: left;
+    font-family: Calibri;
+    text-align: left; 
+    font-weight: bold; 
+    font-size: 24px; 
+    color: forestgreen
+}
+
+.smallBoldHeadding{
     font-family: Calibri;
     text-align: left;
     font-size: 16px;
-    text-align: left;
+    text-align: left; 
     font-weight: bold;
 }
 
-.paragrapgText {
-    font-family: Georgia;
+.paragrapgText{
+        font-family: Georgia;
     text-align: left;
     font-size: 12px;
-    text-align: left;
+    text-align: left; 
     font-weight: lighter;
 }
 
@@ -56,3 +64,4 @@ h1 {
     width: 100%;
     height: 100%;
 }
+
