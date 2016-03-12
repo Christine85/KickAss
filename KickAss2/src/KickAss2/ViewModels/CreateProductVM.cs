@@ -30,5 +30,6 @@ namespace KickAss2.ViewModels
         [Display(Name = "Kategori ID")]
         [Required(ErrorMessage = "Du måste ange vilken kategori produkten tillhör.")]
         public int SelectedCategoryId { get; set; }
+        public CurrentUserVM CurrentUser { get; set; }
     }
 }
