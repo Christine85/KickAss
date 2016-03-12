@@ -89,5 +89,9 @@ namespace KickAss2.Controllers
 
             return RedirectToAction(nameof(HomeController.Index));
         }
+        public IActionResult MyPage()
+        {
+            return View();
+        }
     }
 }
