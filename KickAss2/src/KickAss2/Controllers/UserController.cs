@@ -38,8 +38,8 @@ namespace KickAss2.Controlllers
 
                 if (check == true)
                 {
-                    //return RedirectToAction(nameof(HomeController.LogIn));
                     return RedirectToAction(nameof(HomeController.LogIn));
+                    //return RedirectToAction(nameof(HomeController.LogIn));
                 }
                 else
                 {
@@ -49,7 +49,7 @@ namespace KickAss2.Controlllers
             }
             catch (Exception e)
             {
-                ModelState.AddModelError(string.Empty, e.Message);
+                ModelState.AddModelError(string.Empty, e.InnerException.Message);
                 return View(viewModel);
             }
         }

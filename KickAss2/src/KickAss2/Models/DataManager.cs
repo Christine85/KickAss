@@ -31,6 +31,7 @@ namespace KickAss2.Models
                 user.LastName = viewModel.LastName;
                 user.Email = viewModel.Email;
                 user.PhoneNumber = viewModel.PhoneNumber;
+                user.IsAdmin = "0";
 
                 context.Users.Add(user);
                 context.SaveChanges();
