@@ -11,14 +11,22 @@
     </div>
     @foreach (var item in Model)
             {
-        <div class="row">
-            <div class="col-sm-2">@item.Name</div>
-            <div class="col-sm-2">@item.Description</div>
-            <div class="col-sm-2">@item.Price</div>
-            <form asp-controller="Products" asp-action="AddProductToCart">
-                <div class="col-sm-2"><input type="submit" value="+" class="btn btn-success" style="background-color: forestgreen" /></div>
-                </form>
+        <div id="@item.ProducId" class="row">
+            @*<form  asp-controller="Products" asp-action="AddProductToCart">*@
+                >
+                <div class="col-sm-2">@item.Name</div>
+                <div class="col-sm-2">@item.Description</div>
+                <div class="col-sm-2">@item.Price</div>
+
+                <div class="col-sm-2"><input type="submit" id="@item.ProducId" value="+" class="btn btn-success" style="background-color: forestgreen" /></div>
+            @*</form>*@
 </div>    }
+    <script type="text/javascript">
+        $(".btn_btn-success").click(function () {
+            var id = $(this).attr('id');
+            $.post("/products/addproductstocart", { "id": id });
+        });
+    </script>
 </div>
 
 

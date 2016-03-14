@@ -27,7 +27,8 @@ namespace KickAss2.Controllers
             string currentUserName = HttpContext.Session.GetString("name");
             string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
 
-            if (currentUser != null)
+
+            if (currentUserEmail != null)
             {
                 currentUser = new CurrentUserVM
                 {
@@ -45,7 +46,7 @@ namespace KickAss2.Controllers
             {
                 var dataManager = new DataManager(context);
                 var model = dataManager.ListProducts();
-                return View();
+                return View(model);
             }
         }
 
@@ -85,11 +86,15 @@ namespace KickAss2.Controllers
             return View(model);
         }
 
-        public IActionResult AddProductToCart(ListProductVM viewModel)
+        public IActionResult AddProductToCart(string id)
         {
+            var dataManager = new DataManager(context);
+            var viewModel = dataManager.GetProduct(Convert.ToInt32(id));
             List<ListProductVM> shoppingCart;
             if (HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart") == null)
             {
+                //get product id from database
+                //create viewmodel
                 shoppingCart = new List<ListProductVM>();
                 shoppingCart.Add(viewModel);
                 HttpContext.Session.SetObjectAsJson("shoppingCart", shoppingCart);

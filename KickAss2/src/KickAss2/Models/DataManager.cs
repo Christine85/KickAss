@@ -201,5 +201,20 @@ namespace KickAss2.Models
                  })
                  .Single();
         }
+
+        public ListProductVM GetProduct(int productId)
+        {
+            return context.Products
+                .Where(p => p.ProductId == productId)
+                .Select(o => new ListProductVM
+                {
+                    Name = o.ProductName,
+                    Description = o.Description,
+                    Price = o.Price,
+                    Status = o.Status
+
+
+                }).Single();
+        }
     }
 }
