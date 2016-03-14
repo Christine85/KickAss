@@ -86,10 +86,14 @@ namespace KickAss2.Controllers
             return View(model);
         }
 
-        public IActionResult AddProductToCart(string id)
+        public IActionResult AddProductToCart(ListProductVM viewModel)
         {
+            viewModel.Name = "det här är en produkt :)";
+            viewModel.Description = "beskrivning";
+            viewModel.Price = 300;
+            
             var dataManager = new DataManager(context);
-            var viewModel = dataManager.GetProduct(Convert.ToInt32(id));
+            //var viewModel = dataManager.GetProduct(Convert.ToInt32(id));
             List<ListProductVM> shoppingCart;
             if (HttpContext.Session.GetObjectFromJson<List<ListProductVM>>("shoppingCart") == null)
             {

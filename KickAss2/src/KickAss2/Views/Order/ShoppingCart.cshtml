@@ -65,9 +65,46 @@
 					<hr />
 				</div>
 			</div>
+            @*<div id="row2" class="row" style="padding: 5px; text-align: center">
+                <h4 style="text-align: left; font-weight: bold">Produktnamn</h4>
+
+                <p style="text-align: left"><b>pris</b></p>
+                <p style="text-align: left"><b>antal</b></p>
 
 
-			@foreach (var item in Model.ShoppingList)
+            </div>*@
+
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-2"><label>Produktnam</label></div>
+                    <div class="col-sm-2"><label>Pris</label></div>
+                    <div class="col-sm-2"><label>Antal</label></div>
+                    
+                </div>
+                @foreach (var item in Model.ShoppingList)
+                {
+                    <div class="row">
+                       
+                            
+                            <div class="col-sm-2">@item.ProductInCart.Name</div>
+                            <div class="col-sm-2">@item.ProductInCart.Price</div>
+                            <div class="col-sm-2">@item.Quantity</div>
+
+                           
+                        
+                    </div>    
+                }
+                @*<script type="text/javascript">
+                        $(".btn_btn-success").click(function () {
+                            var id = $(this).attr('id');
+                            $.post("/products/addproductstocart", { "id": id });
+                        });
+                    </script>*@
+            </div>
+
+
+			@*@foreach (var item in Model.ShoppingList)
 			{
 				<div id="row2" class="row" style="padding: 5px; text-align: center">
 					<h4 style="text-align: left; font-weight: bold">@item.ProductInCart.Name</h4>
@@ -77,7 +114,7 @@
 
 
 				</div>
-			}
+			}*@
 
 
 
@@ -85,7 +122,7 @@
 
 			<div id="row1" class="row" style="padding: 5px" ; text-align center>
 				<div class="col-sm-12">
-					<h1 style="text-align: center; font-weight: bold"><span class="glyphicon glyphicon-shopping-cart"></span> Totalt: 500 kr</h1>
+					<h1 style="text-align: center; font-weight: bold"><span class="glyphicon glyphicon-shopping-cart"></span> här visas det totala priset</h1>
 					<br />
 					<hr />
 				</div>
