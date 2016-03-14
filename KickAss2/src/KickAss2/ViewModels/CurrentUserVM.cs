@@ -11,6 +11,9 @@ namespace KickAss2.ViewModels
         public string Email { get; set; }
         public string IsAdmin { get; set; }
 
-        
+        public string UserID { get; set; }
+
+
+
     }
 }

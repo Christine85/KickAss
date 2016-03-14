@@ -71,8 +71,10 @@ namespace KickAss2.Models
 
         public List<OrderHistoryVM> OrderHistory(CurrentUserVM currentUser)
         {
+            int userIDConverted = Convert.ToInt32(currentUser.UserID);
+
             return context.Orders
-                 .Where(o => o.UserId == userID)
+                 .Where(o => o.UserId == userIDConverted)
                  .Select(o => new OrderHistoryVM
                  {
                      OrderDate = o.OrderDate,
@@ -197,7 +199,8 @@ namespace KickAss2.Models
                  {
                      UserName = o.FirstName,
                      Email = o.Email,
-                     IsAdmin = o.IsAdmin
+                     IsAdmin = o.IsAdmin,
+                     UserID = Convert.ToString(o.UserId)
 
                  })
                  .Single();

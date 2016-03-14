@@ -58,6 +58,8 @@ namespace KickAss2.Controlllers
             string currentUserEmail = HttpContext.Session.GetString("email");
             string currentUserName = HttpContext.Session.GetString("name");
             string currentUserIsAdmin = HttpContext.Session.GetString("IsAdmin");
+            string currentUserUserID = HttpContext.Session.GetString("userID");
+
 
             if (currentUserEmail != null)
             {
@@ -65,7 +67,8 @@ namespace KickAss2.Controlllers
                 {
                     UserName = currentUserName,
                     Email = currentUserEmail,
-                    IsAdmin = currentUserIsAdmin
+                    IsAdmin = currentUserIsAdmin,
+                    UserID = currentUserUserID
                 };
 
 
